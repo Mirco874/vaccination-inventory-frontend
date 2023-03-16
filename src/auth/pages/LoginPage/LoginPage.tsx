@@ -1,6 +1,6 @@
-import { useForm, SubmitHandler } from "react-hook-form";
+import { useForm } from "react-hook-form";
 
-import { Box, Button, FormControl, Grid, TextField, Typography } from '@mui/material';
+import { Box, Button, Grid, TextField, Typography } from '@mui/material';
 
 import "./LoginPage.css"
 import { validations } from "../../../utils";
