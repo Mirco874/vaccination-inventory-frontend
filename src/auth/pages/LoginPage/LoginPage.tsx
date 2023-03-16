@@ -17,7 +17,7 @@ const initialFormValues: FormData = {
 
 export const LoginPage = () => {
 
-  const { register, handleSubmit, formState: { errors } } = useForm<FormData>({ defaultValues: initialFormValues});
+const { register, handleSubmit, formState: { errors } } = useForm<FormData>({ defaultValues: initialFormValues});
 
  const onSubmitLogin = ( data: FormData ) => {
       console.log(data)

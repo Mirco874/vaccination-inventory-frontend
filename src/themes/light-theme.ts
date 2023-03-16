@@ -12,7 +12,27 @@ export const lightTheme = createTheme({
           }
         }
       },
-
+      MuiAppBar: {
+        styleOverrides: {
+          root: {
+            backgroundColor:"#323845"
+          }
+        }
+      },
+      MuiInputLabel:{
+        styleOverrides: {
+          root: {
+            color:"black"
+          }
+        }
+      },
+      MuiListItemIcon:{
+        styleOverrides: {
+          root: {
+            justifyContent: 'center'
+          }
+        }
+      }
     }
 })
 
