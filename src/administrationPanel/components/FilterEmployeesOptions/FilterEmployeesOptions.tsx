@@ -1,9 +1,15 @@
+import { useContext } from "react"
 import { Grid } from '@mui/material'
 import { FilterOptions } from '../../../interfaces'
 import { FilterDateRange } from '../../../ui/components'
 import { Filter } from '../../../ui/components/Filter/Filter'
+import { FilterContext } from "../../../context"
 
 const vaccinationStatusOptions: FilterOptions[] = [
+    {
+        key: "",
+        value: "None"
+    },
     {
         key: "true",
         value: "Vaccinated"
@@ -15,6 +21,10 @@ const vaccinationStatusOptions: FilterOptions[] = [
 ]
 
 const vaccinationTypeOptions: FilterOptions[] = [
+    {
+        key: "",
+        value: "None"
+    },
     {
         key: "0",
         value: "Sputnik"
@@ -33,16 +43,31 @@ const vaccinationTypeOptions: FilterOptions[] = [
     }
 ]
 export const FilterEmployeesOptions = () => {
+    const { vaccinationState, 
+            vaccineType, 
+            updateVaccineState, 
+            updateVaccineType } = useContext(FilterContext)
+        
   return (
     <Grid container spacing={2}>
-            <Grid item xs={12} sm={3}>
-                <Filter label='Vaccination state' options={vaccinationStatusOptions}  />
+            <Grid item xs={11} sm={5} md={2}>
+                <Filter 
+                    label='Vaccination state' 
+                    options={vaccinationStatusOptions} 
+                    value={vaccinationState}  
+                    onValueChange={updateVaccineState}
+                    />
             </Grid>
-            <Grid item xs={12} sm={3}>
-                <Filter label='vaccine type' options={vaccinationTypeOptions} />
+            <Grid item xs={11} sm={6} md={2}>
+                <Filter 
+                    label='vaccine type' 
+                    options={vaccinationTypeOptions} 
+                    value={vaccineType}
+                    onValueChange={updateVaccineType}
+                />
             </Grid>
-            <Grid item xs={12} sm={6}>
-                <FilterDateRange/>
+            <Grid item xs={11} sm={12} md={7}>
+                <FilterDateRange />
             </Grid>
     </Grid>
 

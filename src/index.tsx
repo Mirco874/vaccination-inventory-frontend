@@ -8,20 +8,22 @@ import { BrowserRouter } from 'react-router-dom';
 import { App } from './App';
 
 import "./index.css"
-import { UIProvider } from './context';
+import { FilterProvider, UIProvider } from './context';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <UIProvider>
-      <BrowserRouter>
-        <ThemeProvider theme={ lightTheme }>
-          <App/>
-        </ThemeProvider>
-      </BrowserRouter>
-    </UIProvider>
+    <FilterProvider>
+      <UIProvider>
+        <BrowserRouter>
+          <ThemeProvider theme={ lightTheme }>
+            <App/>
+          </ThemeProvider>
+        </BrowserRouter>
+      </UIProvider>
+    </FilterProvider>
   </React.StrictMode>
 );
 

@@ -8,7 +8,13 @@ export const NavBar = () => {
             <Typography mr="20px" variant="h6" >
                 Vaccination Inventory
             </Typography>
-
+            
+            <IconButton
+                color="inherit"
+                aria-label="menu"
+            >
+                <MenuIcon />
+            </IconButton>
         </Toolbar>
     </AppBar>
   )

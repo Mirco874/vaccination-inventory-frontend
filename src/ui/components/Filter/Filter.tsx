@@ -1,13 +1,21 @@
 import { Box, InputLabel, MenuItem, TextField } from "@mui/material"
-import { FC } from "react"
+import { FC, ChangeEvent } from "react"
 import { FilterOptions } from "../../../interfaces";
 
 interface Props {
+    value: string
     label: string;
-    options: FilterOptions[]
+    options: FilterOptions[];
+    onValueChange: ( newValue: string ) => void;
 }
 
-export const Filter: FC<Props> = ({ label, options }) => {
+export const Filter: FC<Props> = ({ value, label, options, onValueChange }) => {
+
+    const updateValue = (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>{
+        const { value } = event.target;
+        onValueChange(value);
+    }
+    
   return (
   <Box display="flex" flexDirection="column">
     <InputLabel>
@@ -17,6 +25,8 @@ export const Filter: FC<Props> = ({ label, options }) => {
         select
         variant="outlined"
         size="small"
+        defaultValue={value}
+        onChange={updateValue}
     >
         {
         options.map(
