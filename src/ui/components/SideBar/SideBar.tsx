@@ -1,7 +1,5 @@
-import { Accordion, AccordionDetails, AccordionSummary, Box, Divider, Drawer , Grid, IconButton, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Typography } from "@mui/material";
+import { Accordion, AccordionDetails, AccordionSummary, Box, Divider,  List, ListItem, Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
-
-import InboxIcon from '@mui/icons-material/MoveToInbox';
 
 import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
 import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined';
@@ -11,18 +9,20 @@ import TocOutlinedIcon from '@mui/icons-material/TocOutlined';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { SideBarBtn } from "../";
 
-const menuItems: string[] = ['Inbox','Starred','Send Email','Drafts']
-
 export const Sidebar = () => {
 
     const navigate = useNavigate();
 
     const goToHome = () => {
-        navigate("/panel/home");
+        navigate("home");
     }
 
     const goToRegisterEmployee = () => {
-        navigate("/panel/register-employee");
+        navigate("register-employee");
+    }
+
+    const goToReviewEmployees = () => {
+        navigate("employees");    
     }
 
     return (
@@ -64,7 +64,8 @@ export const Sidebar = () => {
                                     />
                                     <SideBarBtn 
                                         iconElement={<TocOutlinedIcon/>} 
-                                        text={"review registered employees"}  
+                                        text={"review registered employees"} 
+                                        handleClick={goToReviewEmployees} 
                                     />
                                 </AccordionDetails>
                             </Accordion>
