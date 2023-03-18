@@ -1,7 +1,7 @@
 import { Button, Grid, TextField } from "@mui/material";
 import { FC } from "react";
 import { useForm } from "react-hook-form";
-import { validations } from "../../../utils";
+import { apiMethods, validations } from "../../../utils";
 
 interface Props { 
     onSubmit?: ()=> void;
@@ -25,8 +25,16 @@ export const RegisterEmployeeForm: FC<Props> = ({ onSubmit }) => {
 
     const { register, handleSubmit, formState: { errors } } = useForm<FormData>({ defaultValues: initialFormValues});
 
-    const onSubmitLogin = ( data: FormData ) => {
+    const onSubmitLogin = async( data: FormData ) => {
         console.log(data)
+        try {
+            const response = await apiMethods.post("employees",data);
+            console.log(response);
+        } catch (error) {
+            
+        }
+
+
        if(onSubmit){
         onSubmit();
        }

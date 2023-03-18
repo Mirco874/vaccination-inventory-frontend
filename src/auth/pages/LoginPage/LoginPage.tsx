@@ -1,8 +1,14 @@
+import { useState } from "react";
 import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 
-import { Box, Button, Grid, TextField, Typography } from '@mui/material';
+import { Box, Button, TextField, Typography } from '@mui/material';
+import Alert from '@mui/material/Alert';
 
-import { validations } from "../../../utils";
+import { decodeJWT, validations } from "../../../utils";
+import { employeesApi } from "../../../api";
+
+
 import "./LoginPage.css"
 
 type FormData = {
@@ -18,28 +24,51 @@ const initialFormValues: FormData = {
 export const LoginPage = () => {
 
 const { register, handleSubmit, formState: { errors } } = useForm<FormData>({ defaultValues: initialFormValues});
+const navigate = useNavigate();
+const [hasError,setHasError]= useState(false);
 
- const onSubmitLogin = ( data: FormData ) => {
-      console.log(data)
+ const onSubmitLogin =  async ( data: FormData ) => {
+    try {
+      const { email,password } = data;
+      const response = await employeesApi.post("auth/login",{email,password});
+      const token=response.data.access_token;
+      localStorage.setItem('token',token);
+      const { role } = decodeJWT.decodeJWT(token);
+      console.log(role)
+      if(role === "admin"){
+        setTimeout(()=>{navigate("/panel/home")}, 1000);
+      }
+      else{
+        setTimeout(()=>{navigate("/")}, 1000);
+      }
+
+    } catch (error) {
+      setHasError(true);
+      setTimeout(()=>{setHasError(false)}, 4000);
+    }
+
  }
 
   return (
-    <Grid 
-      container
+    <Box 
+      className="login-backgorund"
+      display="flex"
       alignItems="center"
       justifyContent="center"
-      sx={{ minHeight: '100vh' }}
     >
-      <Grid item xs={12} sm={8} md={6} >
         <Box 
           display=" flex"
-          boxShadow={1}
           flexDirection="column"
           alignItems="center"
-          padding="50px"
+          padding="30px"
+          className="form-container"
+          boxShadow={2} 
         >
-          <Typography variant="h2"> Login </Typography>
-
+        <Typography variant="h2"> Log in to your account </Typography>
+        {
+          hasError && <Alert severity="warning" >wrong username or password, please check it</Alert>
+        }
+        
           <form 
             className="login-form" 
             noValidate
@@ -74,11 +103,10 @@ const { register, handleSubmit, formState: { errors } } = useForm<FormData>({ de
             <Button 
               variant="contained"
               type='submit'
-            >sign in</Button>
+            >Log in</Button>
 
           </form>
-        </Box>
-      </Grid>
-    </Grid>
+      </Box>
+    </Box>
   )
 }
