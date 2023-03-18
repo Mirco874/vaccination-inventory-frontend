@@ -1,7 +1,9 @@
+import { FC } from "react";
+
 import { Box, Button, Divider } from "@mui/material";
 import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
 import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
-import { FC } from "react";
+
 
 interface Props{
     employeId:string | number

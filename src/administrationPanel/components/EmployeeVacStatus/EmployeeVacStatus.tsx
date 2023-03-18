@@ -1,5 +1,6 @@
-import { Chip } from "@mui/material"
 import { FC } from "react"
+import { Chip } from "@mui/material"
+
 
 interface Props {
     status: boolean

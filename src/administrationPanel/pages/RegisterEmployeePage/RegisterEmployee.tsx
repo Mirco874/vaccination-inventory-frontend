@@ -1,9 +1,10 @@
+import {useState} from "react";
+
 import { Button, Grid, InputLabel, TextField, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import { useForm } from "react-hook-form";
-import { validations } from "../../../utils";
 
-import {useState} from "react";
+import { validations } from "../../../utils";
 import { InfoModal } from "../../../ui/components";
 
 type FormData = {
@@ -40,7 +41,7 @@ export const RegisterEmployeePage = () => {
       flexDirection="column"
     >
       <Typography 
-        variant="h4" 
+        variant="h3" 
         component="h1"
         margin="auto"
         marginY="10px"

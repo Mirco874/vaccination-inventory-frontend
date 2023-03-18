@@ -4,3 +4,4 @@ export * from "./EmployeeBasicInfo/EmployeeBasicInfo";
 export * from "./EmployeeContactInfo/EmployeeContactInfo";
 export * from "./EmployeOptions/EmployeOptions";
 export * from "./EmployeeVacStatus/EmployeeVacStatus"
+export * from "./AdministrationSideBar/AdministrationSideBar";

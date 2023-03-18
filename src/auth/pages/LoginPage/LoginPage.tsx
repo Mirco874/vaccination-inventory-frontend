@@ -2,8 +2,8 @@ import { useForm } from "react-hook-form";
 
 import { Box, Button, Grid, TextField, Typography } from '@mui/material';
 
-import "./LoginPage.css"
 import { validations } from "../../../utils";
+import "./LoginPage.css"
 
 type FormData = {
   email: string,

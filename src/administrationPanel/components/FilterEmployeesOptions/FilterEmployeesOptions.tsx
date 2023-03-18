@@ -1,5 +1,6 @@
 import { useContext } from "react"
 import { Grid } from '@mui/material'
+
 import { FilterOptions } from '../../../interfaces'
 import { FilterDateRange } from '../../../ui/components'
 import { Filter } from '../../../ui/components/Filter/Filter'
@@ -56,7 +57,7 @@ export const FilterEmployeesOptions = () => {
                     options={vaccinationStatusOptions} 
                     value={vaccinationState}  
                     onValueChange={updateVaccineState}
-                    />
+                />
             </Grid>
             <Grid item xs={11} sm={6} md={2}>
                 <Filter 

@@ -1,5 +1,6 @@
-import { Box, InputLabel, MenuItem, TextField } from "@mui/material"
 import { FC, ChangeEvent } from "react"
+
+import { Box, InputLabel, MenuItem, TextField } from "@mui/material"
 import { FilterOptions } from "../../../interfaces";
 
 interface Props {

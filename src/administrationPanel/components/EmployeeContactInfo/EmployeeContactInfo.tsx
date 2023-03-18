@@ -1,7 +1,9 @@
+import { FC } from "react";
+
 import { Box, Typography } from "@mui/material";
 import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
 import EmailIcon from '@mui/icons-material/Email';
-import { FC } from "react";
+
 
 interface Props {
     email: string;

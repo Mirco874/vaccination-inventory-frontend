@@ -1,5 +1,5 @@
-import { Box, Button, Modal, Typography } from "@mui/material";
 import { FC} from "react"
+import { Box, Button, Modal, Typography } from "@mui/material";
 
 import "./InfoModal.css"
 
