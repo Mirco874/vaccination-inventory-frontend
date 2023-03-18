@@ -14,7 +14,7 @@ export const AdministrationSideBar = () => {
 
     return ( 
         <Sidebar 
-            backgroundColor="white" 
+            backgroundColor="#FDF5E6" 
             style={{height:"100%"}} 
             width={"100%"}
         >

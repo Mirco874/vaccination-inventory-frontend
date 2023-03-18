@@ -1,13 +1,12 @@
 import {useState} from "react";
 import { useForm } from "react-hook-form";
 
-import { Box, 
-        Button, 
-        Typography } from "@mui/material";
+import { Box, Button, TextField, Typography } from "@mui/material";
 
 import { FormField } from "../../../ui/components";
 import { RegisterVaccinationModal } from "../../components/RegisterVaccinationModal/RegisterVaccinationModal";
 import MedicalInformationIcon from '@mui/icons-material/MedicalInformation';
+
 
 type FormData = {
   birthdate: string;
@@ -53,35 +52,37 @@ export const UpdateProfilePage = () => {
             onSubmit={ handleSubmit(onSubmitLogin) }
           >
             <Box  display="flex"  flexDirection="column" width="40%" margin="auto">
-            
-                  <FormField
+                  <TextField
                         label="Birth date*:"
                         variant="outlined"
                         type="date"
                         { ...register("birthdate", {
                           required: "This field is required",
                         })}
-                        atributeError={errors.birthdate}
+                        error={!!errors.birthdate}
+                        helperText={ errors.birthdate?.message }
                   />
 
-                  <FormField 
+                  <TextField 
                       label="Address*:"
                       variant="outlined"
                       type="text" 
                       { ...register("address", {
                         required: "This field is required",
                       })}
-                      atributeError={errors.address}
+                      error={!!errors.address}
+                      helperText={ errors.address?.message }
                   />
 
-                <FormField 
+                <TextField 
                     label="Phone*:"
                     variant='outlined'
                     type="text" 
                     { ...register("phone", {
                       required: "This field is required",
                     })}
-                    atributeError={errors.phone}
+                    error={!!errors.phone}
+                    helperText={errors.phone?.message }
                 />
 
                 <Button 
@@ -107,7 +108,7 @@ export const UpdateProfilePage = () => {
       <RegisterVaccinationModal
         isOpen={isRegisterVacModalOpen}
         handleClose={handleCloseModal}
-      />               
+      />  
 
     </Box>
   )

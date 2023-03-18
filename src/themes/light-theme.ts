@@ -51,7 +51,7 @@ export const lightTheme = createTheme({
       MuiInputLabel:{
         styleOverrides: {
           root: {
-            color:"black"
+            color:"#A9A9A9"
           }
         }
       },

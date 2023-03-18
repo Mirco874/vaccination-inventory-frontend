@@ -5,3 +5,7 @@ export * from "./EmployeeContactInfo/EmployeeContactInfo";
 export * from "./EmployeOptions/EmployeOptions";
 export * from "./EmployeeVacStatus/EmployeeVacStatus"
 export * from "./AdministrationSideBar/AdministrationSideBar";
+export * from "./DeleteEmpoyeeModal/DeleteEmpoyeeModal";
+export * from "./EditEmployeeModal/EditEmployeeModal";
+export * from "./RegisterEmployeeForm/RegisterEmployeeForm";
+export * from "./EditEmployeeForm/EditEmployeeForm";

@@ -3,9 +3,6 @@ import { Menu, MenuItem, Sidebar, SubMenu } from "react-pro-sidebar";
 import { SideBarItem } from "../../../ui/components";
 
 import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
-import TocOutlinedIcon from '@mui/icons-material/TocOutlined';
-import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined';
-import PersonAddAltIcon from '@mui/icons-material/PersonAddAlt';
 import AccountBoxOutlinedIcon from '@mui/icons-material/AccountBoxOutlined';
 import BadgeOutlinedIcon from '@mui/icons-material/BadgeOutlined';
 import BorderColorOutlinedIcon from '@mui/icons-material/BorderColorOutlined';
