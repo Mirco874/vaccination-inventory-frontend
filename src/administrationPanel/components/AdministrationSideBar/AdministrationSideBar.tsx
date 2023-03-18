@@ -12,8 +12,7 @@ import "./AdministrationSideBar.css"
 
 export const AdministrationSideBar = () => {
 
-    return (
-        
+    return ( 
         <Sidebar 
             backgroundColor="white" 
             style={{height:"100%"}} 
@@ -29,7 +28,7 @@ export const AdministrationSideBar = () => {
             <Divider/>
             <SideBarItem
               title="Dashboard"
-              to="/"
+              to="/panel/home"
               icon={<HomeOutlinedIcon color="info"/>}
             />
 
@@ -56,7 +55,6 @@ export const AdministrationSideBar = () => {
             </SubMenu>
 
         </Menu>
-
         </Sidebar>
     )
 };

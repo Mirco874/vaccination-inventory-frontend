@@ -10,7 +10,7 @@ interface Props {
     onValueChange: ( newValue: string ) => void;
 }
 
-export const Filter: FC<Props> = ({ value, label, options, onValueChange }) => {
+export const Selector: FC<Props> = ({ value, label, options, onValueChange }) => {
 
     const updateValue = (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>{
         onValueChange(event.target.value);
@@ -36,6 +36,7 @@ export const Filter: FC<Props> = ({ value, label, options, onValueChange }) => {
                 </MenuItem>
         ))
         }
+
     </TextField>
   </Box>
 

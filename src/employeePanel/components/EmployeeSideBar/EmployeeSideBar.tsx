@@ -1,19 +1,60 @@
-import {  Box } from "@mui/material";
-import { useNavigate} from "react-router-dom";
+import {  Box, Divider, Typography } from "@mui/material";
+import { Menu, MenuItem, Sidebar, SubMenu } from "react-pro-sidebar";
+import { SideBarItem } from "../../../ui/components";
+
+import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
+import TocOutlinedIcon from '@mui/icons-material/TocOutlined';
+import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined';
+import PersonAddAltIcon from '@mui/icons-material/PersonAddAlt';
+import AccountBoxOutlinedIcon from '@mui/icons-material/AccountBoxOutlined';
+import BadgeOutlinedIcon from '@mui/icons-material/BadgeOutlined';
+import BorderColorOutlinedIcon from '@mui/icons-material/BorderColorOutlined';
 
 export const EmployeeSideBar = () => {
 
-    const navigate = useNavigate();
-
-    const goToHome = () => {
-        navigate("home");
-    }
-
-
     return (
-            <Box flexDirection="column">
+        <Sidebar 
+        backgroundColor="white" 
+        style={{height:"100%"}} 
+        width={"100%"}
+        >   
+            <Menu>
+                <MenuItem className="user-data">
+                    <Typography variant="h5" >Employee</Typography>
+                    <Typography variant="h6" >Mirco Pilco</Typography>
+                </MenuItem>
+                
+                <Divider/>
 
+            <SideBarItem
+                title="Home"
+                to="/"
+                icon={<HomeOutlinedIcon color="info"/>}
+            />
 
-            </Box>
+            <SubMenu
+                className="submenu-title"       
+                label="My Profile"  
+                icon={<AccountBoxOutlinedIcon color="info" />} 
+            >   
+                <Box >
+                <Divider/>
+                    <SideBarItem
+                        title="My information"
+                        to="/watch-profile"
+                        icon={<BadgeOutlinedIcon color="info" />}
+                    />
+
+                    <SideBarItem
+                        title="Edit Information"
+                        to="/update-profile"
+                        icon={<BorderColorOutlinedIcon color="info" />}
+                    /> 
+                <Divider/> 
+                </Box>
+            </SubMenu>
+
+            </Menu>
+        </Sidebar>
     )
 };

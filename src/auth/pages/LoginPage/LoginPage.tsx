@@ -38,7 +38,7 @@ const { register, handleSubmit, formState: { errors } } = useForm<FormData>({ de
           alignItems="center"
           padding="50px"
         >
-          <Typography variant="h4"> Login</Typography>
+          <Typography variant="h2"> Login </Typography>
 
           <form 
             className="login-form" 
@@ -50,6 +50,7 @@ const { register, handleSubmit, formState: { errors } } = useForm<FormData>({ de
               variant='filled'
               placeholder="Email" 
               type="email" 
+              size="small"
               { ...register("email", {
                 required: "This field is required",
                 validate: validations.isEmail
@@ -62,6 +63,7 @@ const { register, handleSubmit, formState: { errors } } = useForm<FormData>({ de
               variant='filled'
               placeholder="Password" 
               type="password" 
+              size="small"
               { ...register("password", {
                 required: "This field is required",
               })}

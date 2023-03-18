@@ -4,18 +4,19 @@ import { Grid } from "@mui/material"
 import { NavBar } from "../../ui/components"
 import { EmployeeSideBar } from "../components"
 import { UpdateProfilePage, WelcomePage } from "../pages"
-
+ 
 export const EmployeePanelRoutes = () => {
   return (
     <>      
         <NavBar  />
-        <Grid container spacing={2} height={"150%"}>
-          <Grid item xs={12} sm={4} md={3} sx={{ backgroundColor: "#171d24" }}>
+        <Grid container spacing={2} >
+          <Grid item xs={12} sm={4} md={2}>
             <EmployeeSideBar/>  
           </Grid>
-          <Grid item xs={12} sm={8} md={9}>
+          <Grid item xs={12} sm={8} md={10}>
             <Routes>
                 <Route path="/update-profile" element={<UpdateProfilePage/>} />
+                <Route path="/watch-profile" element={<UpdateProfilePage/>} />
                 <Route path="/" element={<WelcomePage/>} />
             </Routes>
           </Grid>
