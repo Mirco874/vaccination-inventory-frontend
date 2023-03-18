@@ -50,24 +50,24 @@ export const FilterEmployeesOptions = () => {
             updateVaccineType } = useContext(FilterContext)
         
   return (
-    <Grid container spacing={2}>
-            <Grid item xs={11} sm={5} md={2}>
+    <Grid container spacing={2} margin="auto">
+            <Grid item xs={11} sm={5} md={2} >
                 <Filter 
-                    label='Vaccination state' 
+                    label='Vaccination state:' 
                     options={vaccinationStatusOptions} 
                     value={vaccinationState}  
                     onValueChange={updateVaccineState}
                 />
             </Grid>
-            <Grid item xs={11} sm={6} md={2}>
+            <Grid item xs={11} sm={6} md={2}  >
                 <Filter 
-                    label='vaccine type' 
+                    label='vaccine type:' 
                     options={vaccinationTypeOptions} 
                     value={vaccineType}
                     onValueChange={updateVaccineType}
                 />
             </Grid>
-            <Grid item xs={11} sm={12} md={7}>
+            <Grid item xs={11} sm={12} md={7} >
                 <FilterDateRange />
             </Grid>
     </Grid>

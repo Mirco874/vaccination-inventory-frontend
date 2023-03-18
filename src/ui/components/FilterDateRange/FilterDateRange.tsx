@@ -19,9 +19,9 @@ export const FilterDateRange = () => {
     }
 
     return (
-        <Grid container spacing={2} >
+        <Grid container spacing={2}  >
 
-            <Grid item xs={5} sm={6} md={4}>
+            <Grid item xs={4} sm={6} md={4}>
                 <InputLabel>
                     Start date:
                 </InputLabel>
@@ -35,7 +35,7 @@ export const FilterDateRange = () => {
                 />
             </Grid>
 
-            <Grid item xs={5} sm={6} md={4}>
+            <Grid item xs={4} sm={6} md={4}>
                 <InputLabel>
                     End date:
                 </InputLabel>
@@ -49,7 +49,7 @@ export const FilterDateRange = () => {
                 />
             </Grid>
 
-            <Grid item xs={2} sm={12} md={4} marginTop={"35px"}> 
+            <Grid item xs={4} sm={12} md={4} marginTop={"32px"} > 
                 <Button
                     variant='contained'
                     onClick={clearRangeDate}

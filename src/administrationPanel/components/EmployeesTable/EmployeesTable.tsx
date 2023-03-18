@@ -27,7 +27,7 @@ const columns: GridColDef[] = [
     { 
         field: "contactInfo", 
         headerName: "Contact", 
-        width: 200,
+        width: 170,
         sortable: false,
         renderCell: (params: GridRenderCellParams) => (
             <EmployeeContactInfo 
@@ -39,15 +39,15 @@ const columns: GridColDef[] = [
     { 
         field: "vaccinationStatus",
         headerName: "Vaccination status", 
-        width: 160, 
+        width: 130, 
         sortable: false,
         renderCell: (params: GridRenderCellParams) => (
             <EmployeeVacStatus status={params.row.vaccinationStatus} />
         )
     },
-    { field: "typeOfVaccine", headerName: "Type of vaccine", width: 160, sortable: false },
+    { field: "typeOfVaccine", headerName: "Type of vaccine", width: 130, sortable: false },
     { field: "numberOfDoses", headerName: "Doses", width: 60, sortable: false },
-    { field: "vaccinationDate", headerName: "Vaccination date", width: 140, sortable: false },
+    { field: "vaccinationDate", headerName: "Vaccination date", width: 110, sortable: false },
     { 
         field: "options", 
         headerName: "Options", 
@@ -80,6 +80,7 @@ export const EmployeesTable = () => {
   return (
     <Box className="employees-table">
         <DataGrid 
+            
             rows={ rows }
             columns={ columns }
             rowHeight={80}
