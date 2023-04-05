@@ -30,11 +30,11 @@ const [hasError,setHasError]= useState(false);
  const onSubmitLogin =  async ( data: FormData ) => {
     try {
       const response = await employeesApi.post("auth/login",data);
-      const token=response.data.access_token;
+      const token=response.data.token;
       localStorage.setItem('token',token);
-      const { idRol } = decodeJWT.decodeJWT(token);
+      const { id_rol } = decodeJWT.decodeJWT(token);
       
-      if(idRol === 0){
+      if(id_rol === 0){
         setTimeout(()=>{navigate("/panel/home")}, 1000);
       }
       else{
