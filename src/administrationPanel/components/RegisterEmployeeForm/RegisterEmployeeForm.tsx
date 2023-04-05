@@ -4,6 +4,8 @@ import { useForm } from "react-hook-form";
 import { apiMethods, validations } from "../../../utils";
 import { InfoModal } from "../../../ui/components";
 import { ApiResponse } from "../../../interfaces";
+import { AxiosError } from "axios";
+import { Height } from "@mui/icons-material";
 
 type FormData = {
     identityCard: string;
@@ -26,7 +28,7 @@ interface RegisteEmployeeStatus {
 
 export const RegisterEmployeeForm = () => {
 
-    const { register, handleSubmit, formState: { errors } } = useForm<FormData>({ defaultValues: initialFormValues});
+    const { register, handleSubmit, formState: { errors }, reset } = useForm<FormData>({ defaultValues: initialFormValues});
     
     const [registerStatus, setRegisterStatus] = useState<RegisteEmployeeStatus>({ success: false, message:"" }); 
     const [isNotificationOpen, setIsNotificationOpen] = useState<boolean>(false);
@@ -39,14 +41,18 @@ export const RegisterEmployeeForm = () => {
 
             setRegisterStatus({ 
                 success: true, 
-                message: `The new user was created with email: ${data.data.email} \n and password: ${data.data.password} `
+                message: `The new user was created with email: 
+                         ${data.data.email}  
+                         and password:${data.data.password} `
             })
-            } 
-        catch (error) {
+            reset(initialFormValues)
+        } 
+        catch (error: any) {
             setRegisterStatus({ 
                 success: false, 
-                message: "Something happened, internal server error"
+                message: error.response.data.message
             })
+            
         }
         finally{
             onOpenNotification();
@@ -67,13 +73,14 @@ export const RegisterEmployeeForm = () => {
         >
 
             <Snackbar 
+                anchorOrigin={{ vertical: "top", horizontal:"center" }}
                 open={isNotificationOpen} 
                 autoHideDuration={6000} 
             >
                 <Alert 
                     onClose={onCloseNotification} 
                     severity={registerStatus.success? "success": "error"} 
-                    sx={{ width: '100%' }}
+                    variant="filled"
                 >
                     {registerStatus.message}
                 </Alert>
