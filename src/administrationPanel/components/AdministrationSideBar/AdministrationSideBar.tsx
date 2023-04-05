@@ -6,7 +6,7 @@ import TocOutlinedIcon from '@mui/icons-material/TocOutlined';
 import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined';
 import PersonAddAltIcon from '@mui/icons-material/PersonAddAlt';
 
-import { SideBarItem } from "../../../ui/components";
+import { ProfileMenuItem, SideBarItem } from "../../../ui/components";
 import "./AdministrationSideBar.css"
 
 
@@ -20,11 +20,8 @@ export const AdministrationSideBar = () => {
         >
             <Menu>
 
-            <MenuItem className="user-data">
-                <Typography variant="h5" >Admin</Typography>
-                <Typography variant="h6" >Mirco Pilco</Typography>
-            </MenuItem>
-
+            <ProfileMenuItem/>
+            
             <Divider/>
             <SideBarItem
               title="Dashboard"
