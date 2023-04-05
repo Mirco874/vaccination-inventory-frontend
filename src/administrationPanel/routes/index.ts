@@ -1,1 +1,1 @@
-export * from "./AdministrationPanel";
+export * from "./AdministrationPanelRoutes";

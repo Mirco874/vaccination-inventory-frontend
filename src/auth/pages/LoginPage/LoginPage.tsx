@@ -32,7 +32,7 @@ const [hasError,setHasError]= useState(false);
       const response = await employeesApi.post("auth/login",data);
       const token=response.data.token;
       localStorage.setItem('token',token);
-      const { id_rol } = decodeJWT.decodeJWT(token);
+      const { id_rol } = decodeJWT.decodeJWT();
       
       if(id_rol === 0){
         setTimeout(()=>{navigate("/panel/home")}, 1000);

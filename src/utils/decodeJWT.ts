@@ -1,8 +1,10 @@
 import { JwtPayload } from "../interfaces";
 
-export const  decodeJWT = (token: string): JwtPayload => {
+export const  decodeJWT = (): JwtPayload => {
+    const token = localStorage.getItem("token") || "";
     var base64Url = token.split(".")[1];
     var base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
+
     var jsonPayload = decodeURIComponent(
       window
         .atob(base64)
