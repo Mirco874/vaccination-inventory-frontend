@@ -1,8 +1,4 @@
-import { useProSidebar } from "react-pro-sidebar";
-
-import { AppBar, IconButton, Toolbar, Typography } from "@mui/material";
-import { Menu as MenuIcon } from '@mui/icons-material';
-
+import { AppBar, Toolbar, Typography } from "@mui/material";
 
 export const NavBar= () => {
 

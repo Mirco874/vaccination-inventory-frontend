@@ -1,5 +1,5 @@
 import { FC } from "react"
-import { Box, Button, Divider, Grid, Modal, Typography } from "@mui/material";
+import { Divider, Grid, Modal, Typography } from "@mui/material";
 
 import "./BasicModal.css"
 

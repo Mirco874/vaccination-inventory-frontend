@@ -1,5 +1,3 @@
-import {useState} from "react";
-
 import { Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import { RegisterEmployeeForm } from "../../components";

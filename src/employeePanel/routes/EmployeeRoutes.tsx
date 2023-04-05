@@ -18,13 +18,12 @@ export const EmployeePanelRoutes = () => {
       if( !isUserLogged ){
         navigate("/auth/login");
       }
-      
+
       const { id_rol } = decodeJWT.decodeJWT();
       if(id_rol === 0){
         navigate("/panel/home");
       }
-
-  } , [])
+  } , [navigate])
 
  useEffect(
   ()=>{

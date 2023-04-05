@@ -1,9 +1,8 @@
 import { Grid } from "@mui/material"
-import { Routes, Route, Navigate, useNavigate } from "react-router-dom"
+import { Routes, Route, useNavigate } from "react-router-dom"
 import { NavBar } from "../../ui/components"
 import { RegisterEmployeePage, ReviewEmployeesPage } from "../pages"
 import { AdministrationSideBar } from "../components";
-import { useSession } from "../../hooks";
 import { useCallback, useEffect } from "react";
 import { existUserLogged } from "../../utils/apiMethods";
 import { decodeJWT } from "../../utils";
@@ -18,13 +17,13 @@ export const AdministrationPanelRoutes = () => {
       if( !isUserLogged ){
         navigate("/auth/login");
       }
-      
+
       const { id_rol } = decodeJWT.decodeJWT();
       if(id_rol === 1){
         navigate("/");
       }
 
-  } , [])
+  } , [navigate])
 
  useEffect(
   ()=>{

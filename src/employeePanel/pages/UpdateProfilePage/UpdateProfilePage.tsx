@@ -3,7 +3,6 @@ import { useForm } from "react-hook-form";
 
 import { Box, Button, TextField, Typography } from "@mui/material";
 
-import { FormField } from "../../../ui/components";
 import { RegisterVaccinationModal } from "../../components/RegisterVaccinationModal/RegisterVaccinationModal";
 import MedicalInformationIcon from '@mui/icons-material/MedicalInformation';
 

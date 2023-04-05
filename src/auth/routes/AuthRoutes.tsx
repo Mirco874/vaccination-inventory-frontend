@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useCallback, useEffect } from "react";
   
 import { Routes, Route, useNavigate } from "react-router-dom";
 
@@ -10,24 +10,25 @@ export const AuthRoutes = () => {
 
   const navigate =useNavigate();
 
-  const verifyUserLogged= async() =>{
+  const verifyUserLogged= useCallback(async() =>{
     const isUserLogged=await existUserLogged();
     
      if(isUserLogged){
-      
       const { id_rol } = decodeJWT.decodeJWT();
+
         if(id_rol===0){
           navigate("/panel/home");
         }
+        
         else{
           navigate("/");
         }
      }
-  }
+  }, [navigate])
 
   useEffect(()=>{
     verifyUserLogged()
-  },[])
+  },[verifyUserLogged])
 
   return (
     <Routes>

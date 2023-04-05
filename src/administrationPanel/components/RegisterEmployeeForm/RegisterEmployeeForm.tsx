@@ -1,11 +1,10 @@
-import { Alert, Box, Button, Grid, Snackbar, TextField } from "@mui/material";
-import { FC, useState } from "react";
+import { Alert, Box, Button, Snackbar, TextField } from "@mui/material";
+import {  useState } from "react";
 import { useForm } from "react-hook-form";
 import { apiMethods, validations } from "../../../utils";
-import { InfoModal } from "../../../ui/components";
+
 import { ApiResponse } from "../../../interfaces";
-import { AxiosError } from "axios";
-import { Height } from "@mui/icons-material";
+
 
 type FormData = {
     identityCard: string;
