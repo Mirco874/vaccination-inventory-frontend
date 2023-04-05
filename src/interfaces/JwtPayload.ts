@@ -1,4 +1,4 @@
 export interface JwtPayload {
     email: string;
-    role: "admin" |  "employee";
+    idRol: 0 | 1;
 }

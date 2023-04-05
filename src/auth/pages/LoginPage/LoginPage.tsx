@@ -12,12 +12,12 @@ import { employeesApi } from "../../../api";
 import "./LoginPage.css"
 
 type FormData = {
-  email: string,
+  username: string,
   password: string,
 };
 
 const initialFormValues: FormData = {
-  email: "",
+  username: "",
   password: ""
 }
 
@@ -29,13 +29,12 @@ const [hasError,setHasError]= useState(false);
 
  const onSubmitLogin =  async ( data: FormData ) => {
     try {
-      const { email,password } = data;
-      const response = await employeesApi.post("auth/login",{email,password});
+      const response = await employeesApi.post("auth/login",data);
       const token=response.data.access_token;
       localStorage.setItem('token',token);
-      const { role } = decodeJWT.decodeJWT(token);
-      console.log(role)
-      if(role === "admin"){
+      const { idRol } = decodeJWT.decodeJWT(token);
+      
+      if(idRol === 0){
         setTimeout(()=>{navigate("/panel/home")}, 1000);
       }
       else{
@@ -80,12 +79,12 @@ const [hasError,setHasError]= useState(false);
               placeholder="Email" 
               type="email" 
               size="small"
-              { ...register("email", {
+              { ...register("username", {
                 required: "This field is required",
                 validate: validations.isEmail
               })}
-              error={!!errors.email}
-              helperText={ errors.email?.message }
+              error={!!errors.username}
+              helperText={ errors.username?.message }
             />
 
             <TextField 

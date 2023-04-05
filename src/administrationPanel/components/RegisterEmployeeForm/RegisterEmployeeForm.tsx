@@ -1,11 +1,9 @@
-import { Button, Grid, TextField } from "@mui/material";
-import { FC } from "react";
+import { Alert, Box, Button, Grid, Snackbar, TextField } from "@mui/material";
+import { FC, useState } from "react";
 import { useForm } from "react-hook-form";
 import { apiMethods, validations } from "../../../utils";
-
-interface Props { 
-    onSubmit?: ()=> void;
-}
+import { InfoModal } from "../../../ui/components";
+import { ApiResponse } from "../../../interfaces";
 
 type FormData = {
     identityCard: string;
@@ -21,104 +19,127 @@ type FormData = {
     email: "",
   }
 
-export const RegisterEmployeeForm: FC<Props> = ({ onSubmit }) => {
+interface RegisteEmployeeStatus {
+    success: boolean;
+    message: string;
+}
+
+export const RegisterEmployeeForm = () => {
 
     const { register, handleSubmit, formState: { errors } } = useForm<FormData>({ defaultValues: initialFormValues});
+    
+    const [registerStatus, setRegisterStatus] = useState<RegisteEmployeeStatus>({ success: false, message:"" }); 
+    const [isNotificationOpen, setIsNotificationOpen] = useState<boolean>(false);
+    const onOpenNotification = () => setIsNotificationOpen(true);
+    const onCloseNotification = () => setIsNotificationOpen(false);
 
-    const onSubmitLogin = async( data: FormData ) => {
-        console.log(data)
+    const onRegisterEmployee = async( formValues: FormData ) => {
         try {
-            const response = await apiMethods.post("employees",data);
-            console.log(response);
-        } catch (error) {
-            
+            const { data } = await apiMethods.post("/api/v1/employee",formValues) as {data: ApiResponse};
+
+            setRegisterStatus({ 
+                success: true, 
+                message: `The new user was created with email: ${data.data.email} \n and password: ${data.data.password} `
+            })
+            } 
+        catch (error) {
+            setRegisterStatus({ 
+                success: false, 
+                message: "Something happened, internal server error"
+            })
         }
-
-
-       if(onSubmit){
-        onSubmit();
-       }
+        finally{
+            onOpenNotification();
+        }
     }
 
   return (
     <form 
         className="register-employee-form" 
         noValidate
-        onSubmit={ handleSubmit(onSubmitLogin) }
+        onSubmit={ handleSubmit(onRegisterEmployee) }
     >
-        <Grid container justifyContent="center" >
-                
-                <Grid item xs={7}>
-                    <TextField 
-                        label="Identity card*:"
-                        variant='filled'
-                        type="text"
-                        size="small"
-                        fullWidth
-                        { ...register("identityCard", {
-                            required: "This field is required",
-                            validate: validations.isIdentityCard,
-                            maxLength: { value: 10, message: 'The identity card must contain ten characters' },
-                            minLength: { value: 10, message: 'The identity card must contain ten characters' }
-                        })}
-                        error={!!errors.identityCard}
-                        helperText={ errors.identityCard?.message } 
-                    />
-                </Grid>
+        <Box
+            display="flex"
+            flexDirection="column"
+            margin="auto"
+            width="60%"
+        >
 
-                <Grid item xs={7}>
-                    <TextField 
-                        label="Email*:"
-                        variant='filled'
-                        type="email" 
-                        size="small"
-                        fullWidth
-                        { ...register("email", {
-                            required: "This field is required",
-                            validate: validations.isEmail,
-                        })}
-                        error={!!errors.email}
-                        helperText={ errors.email?.message }
-                    />
-                </Grid>
+            <Snackbar 
+                open={isNotificationOpen} 
+                autoHideDuration={6000} 
+            >
+                <Alert 
+                    onClose={onCloseNotification} 
+                    severity={registerStatus.success? "success": "error"} 
+                    sx={{ width: '100%' }}
+                >
+                    {registerStatus.message}
+                </Alert>
+            </Snackbar>
 
-                <Grid item xs={7}>
-                    <TextField 
-                    label="Name*:" 
-                    variant='filled'
-                    type="text" 
-                    size="small"
-                    fullWidth
-                    { ...register("name", {
-                        required: "This field is required",
-                        validate: validations.isNameOrLastName,
-                    })}
-                    error={!!errors.name}
-                    helperText={ errors.name?.message }
-                    />
-                </Grid>
 
-                <Grid item xs={7}>
-                    <TextField
-                        label="Last name*:"     
-                        variant='filled'
-                        type="text" 
-                        size="small"
-                        fullWidth 
-                        { ...register("lastName", {
-                            required: "This field is required",
-                            validate: validations.isNameOrLastName,
-                        })}
-                        error={!!errors.lastName}
-                        helperText={ errors.lastName?.message }
-                    />
-                </Grid>
+            <TextField 
+                label="Identity card*:"
+                variant='filled'
+                type="text"
+                size="small"
+                { ...register("identityCard", {
+                    required: "This field is required",
+                    validate: validations.isIdentityCard,
+                    maxLength: { value: 10, message: 'The identity card must contain ten characters' },
+                    minLength: { value: 10, message: 'The identity card must contain ten characters' }
+                })}
+                error={!!errors.identityCard}
+                helperText={ errors.identityCard?.message } 
+            />
 
-                <Grid item xs={7} my="10px" >
-                    <Button  variant="contained" type='submit'>Register </Button>
-                </Grid>
 
-        </Grid>
+            <TextField 
+                label="Email*:"
+                variant='filled'
+                type="email" 
+                size="small"
+                { ...register("email", {
+                    required: "This field is required",
+                    validate: validations.isEmail,
+                })}
+                error={!!errors.email}
+                helperText={ errors.email?.message }
+            />
+
+            <TextField 
+                label="Name*:" 
+                variant='filled'
+                type="text" 
+                size="small"
+                { ...register("name", {
+                    required: "This field is required",
+                    validate: validations.isNameOrLastName,
+                })}
+                error={!!errors.name}
+                helperText={ errors.name?.message }
+            />
+
+            <TextField
+                label="Last name*:"     
+                variant='filled'
+                type="text" 
+                size="small"
+                { ...register("lastName", {
+                    required: "This field is required",
+                    validate: validations.isNameOrLastName,
+                })}
+                error={!!errors.lastName}
+                helperText={ errors.lastName?.message }
+            />
+
+            <Button variant="contained" type='submit' className="submit-btn">
+                Register 
+            </Button>
+
+        </Box>
   </form>
   )
 }
