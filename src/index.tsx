@@ -5,7 +5,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { ProSidebarProvider } from 'react-pro-sidebar';
 
 import { CssBaseline, ThemeProvider } from '@mui/material';
-import { FilterProvider, UIProvider, UserProvider } from './context';
+import { UIProvider, UserProvider } from './context';
 
 import { lightTheme } from './themes';
 import { App } from './App';
@@ -22,7 +22,6 @@ root.render(
   <React.StrictMode>
     <LocalizationProvider dateAdapter={AdapterDayjs}>
     <UserProvider>
-    <FilterProvider>
       <UIProvider>
       <ProSidebarProvider>
         <BrowserRouter>
@@ -33,7 +32,6 @@ root.render(
         </BrowserRouter>
         </ProSidebarProvider>
       </UIProvider>
-    </FilterProvider>
     </UserProvider>
     </LocalizationProvider>
   </React.StrictMode>

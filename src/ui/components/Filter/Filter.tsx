@@ -4,40 +4,38 @@ import { Box, InputLabel, MenuItem, TextField } from "@mui/material"
 import { FilterOptions } from "../../../interfaces";
 
 interface Props {
-    value: string
+    name: string;
+    value: string | boolean | number;
     label: string;
     options: FilterOptions[];
-    onValueChange: ( newValue: string ) => void;
+    onValueChange: ( event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement> ) => void;
 }
 
-export const Filter: FC<Props> = ({ value, label, options, onValueChange }) => {
+export const Filter: FC<Props> = ({ name, value, label, options, onValueChange }) => {
 
-    const updateValue = (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>{
-        onValueChange(event.target.value);
-    }
-    
-  return (
-  <Box display="flex" flexDirection="column">
-    <InputLabel>
-        {label}
-    </InputLabel>
-    <TextField
-        select
-        variant="outlined"
-        size="small"
-        defaultValue={value}
-        onChange={updateValue}
-    >
-        {
-        options.map(
-            (option, index)=>(
-                <MenuItem key={index} value={option.value} >
-                    {option.name}
-                </MenuItem>
-        ))
-        }
-    </TextField>
-  </Box>
-
-  )
+    return (
+        <Box display="flex" flexDirection="column">
+          <InputLabel>
+              {label}
+          </InputLabel>
+          <TextField
+              name={name}
+              select
+              variant="outlined"
+              size="small"
+              defaultValue={value}
+              onChange={onValueChange}
+          >
+              {
+              options.map(
+                  (option, index)=>(
+                      <MenuItem key={index} value={option.value} >
+                          {option.name}
+                      </MenuItem>
+              ))
+              }
+          </TextField>
+        </Box>
+      
+        )
 }

@@ -26,6 +26,7 @@ export const UserProvider:FC<Props> = ({ children }) => {
 
     const removeUserData = () => {
         dispatch({ type: "[User] - remove user data"});
+        localStorage.removeItem("token");
     }
 
     return (

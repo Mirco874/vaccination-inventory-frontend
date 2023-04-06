@@ -11,6 +11,6 @@ export interface User {
     vaccinationDate: string | null;  //ToDo: check type
     doses: number | null;
 }
-export type vaccinatedState = boolean | -1;
+export type vaccinatedState = string | -1;
 
 export type vaccineType = "Sputnik" | "AstraZeneca" | "Pfizer" | "Jhonson&Jhonson" | -1;
