@@ -1,4 +1,4 @@
-import {useState} from "react";
+import {useContext, useState} from "react";
 import { useForm } from "react-hook-form";
 
 import { Box, Button, TextField, Typography } from "@mui/material";
@@ -8,6 +8,8 @@ import MedicalInformationIcon from '@mui/icons-material/MedicalInformation';
 import { DateSelector } from "../../../ui/components";
 import  { Dayjs } from 'dayjs';
 import isBetween from "dayjs/plugin/isBetween"
+import { UserContext } from "../../../context";
+import { put } from "../../../utils/apiMethods";
 
 
 type FormData = {
@@ -16,17 +18,24 @@ type FormData = {
   phone: string;
 }
 
-const initialFormValues = {
-  birthdate: null,
-  address: "",
-  phone: "",
-}
-
 const minDate = "1960-01-01";
 const maxDate = "2005-01-01";
 
 
 export const UpdateProfilePage = () => {
+
+  const { user } = useContext(UserContext);
+
+  const initialFormValues = user? {
+    birthdate: user.birthDate,
+    address: user.address,
+    phone: user.phone,
+  } : {
+    birthdate: null,
+    address: "",
+    phone: "",
+  }
+
   const { register, handleSubmit, formState: { errors }, setValue, } = useForm<FormData>({ defaultValues: initialFormValues});
   
   const [isRegisterVacModalOpen, setIsRegisterVacModal] = useState(false);
@@ -39,9 +48,14 @@ export const UpdateProfilePage = () => {
 
   const {onBlur, ref} = register('birthdate'); 
 
-  const onSubmitLogin = ( data: FormData ) => {
+  const onSubmitLogin = async ( data: FormData ) => {
    if( data.birthdate?.isValid() && data.birthdate?.isBetween(minDate, maxDate, 'day', '[)') ){
-    console.log(data.birthdate?.format('DD-MM-YYYY'))
+    try {
+      const body = {...data, birthDate:data.birthdate.format('DD-MM-YYYY') };
+      await put(`/api/v1/employee/${user?.id}/update-additional-information`,body);
+    } catch (error) {
+      console.log(error)
+    }
    }
   }
 

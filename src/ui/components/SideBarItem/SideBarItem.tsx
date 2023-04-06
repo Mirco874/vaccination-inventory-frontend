@@ -18,7 +18,7 @@ export const SideBarItem: FC<Props> = ({ title, to, icon }) => {
     const onChangePage = () => {
       navigate(to);
     }
-    console.log(location.pathname === to)
+
     return (
       <MenuItem
 

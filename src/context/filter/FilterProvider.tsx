@@ -46,7 +46,6 @@ export const FilterProvider:FC<Props> = ({ children }) => {
 
     const fetchEmployeesData = async () => {
         const apiResponse = await employeesApi.get("");
-        console.log(apiResponse)
     }
 
 
@@ -67,7 +66,6 @@ export const FilterProvider:FC<Props> = ({ children }) => {
             query=query + `start-date=${startDate}&end-date=${endDate}`
         }
  
-        console.log(`${process.env.REACT_APP_BACKEND_URL}/api/v1/employee?${query}`)
 
     }, [ state ])
     

@@ -66,7 +66,6 @@ export const RegisterVaccinationModal: FC<Props> = ({ isOpen = false, handleClos
                     variant="outlined"
                     fullWidth
                     size="small"
-                    placeholder="Number of doses*:" 
                     type="number" 
                     inputProps={{ min:1, max:5 }}
                 />

@@ -36,7 +36,6 @@ export const existUserLogged = async () => {
       try {
 
         await employeesApi.get(process.env.REACT_APP_BACKEND_VERIFY_TOKEN_URL || "http://localhost:8080", getHeaders());
-        console.log(token)
         return true;
 
       } catch (error) {
