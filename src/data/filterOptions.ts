@@ -7,11 +7,11 @@ export const vaccineStatusFilterOptions: FilterOptions[] = [
         name: "All"
     },
     {
-        value: 0,
+        value: 1,
         name: "Vaccinated"
     },
     {
-        value: 1,
+        value: 0,
         name: "Not vaccinated"
     }
 ]

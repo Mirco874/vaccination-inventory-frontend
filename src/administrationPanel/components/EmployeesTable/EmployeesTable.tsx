@@ -1,7 +1,7 @@
 import { Box } from "@mui/material";
 import { DataGrid, GridColDef, GridRenderCellParams } from '@mui/x-data-grid';
 
-import { FC, useContext } from "react";
+import { useContext } from "react";
 import { EmployeOptions, EmployeeBasicInfo, EmployeeContactInfo, EmployeeVacStatus } from "../";
 import { EmployeesContext } from "../../../context";
 import { Employee, User } from "../../../interfaces";
@@ -13,7 +13,7 @@ const columns: GridColDef[] = [
     {
         field: "basicInfo",
         headerName: "Basic information",
-        width: 200,
+        width: 170,
         sortable: false,
         renderCell: (params: GridRenderCellParams) => (
             <EmployeeBasicInfo
@@ -26,7 +26,7 @@ const columns: GridColDef[] = [
     {
         field: "contactInfo",
         headerName: "Contact",
-        width: 200,
+        width: 170,
         sortable: false,
         renderCell: (params: GridRenderCellParams) => (
             <EmployeeContactInfo
@@ -38,19 +38,19 @@ const columns: GridColDef[] = [
     {
         field: "vaccinatedState",
         headerName: "Vaccination status",
-        width: 160,
+        width: 140,
         sortable: false,
         renderCell: (params: GridRenderCellParams) => (
             <EmployeeVacStatus status={params.row.vaccinatedState} />
         )
     },
-    { field: "vaccineType", headerName: "Type of vaccine", width: 150, sortable: false },
+    { field: "vaccineType", headerName: "Type of vaccine", width: 140, sortable: false },
     { field: "doses", headerName: "Doses", width: 80, sortable: false },
-    { field: "vaccinationDate", headerName: "Vaccination date", width: 150, sortable: false },
+    { field: "vaccinationDate", headerName: "Vaccination date", width: 130, sortable: false },
     {
         field: "options",
         headerName: "Options",
-        width: 140,
+        width: 120,
         renderCell: (params: GridRenderCellParams) => (
             <EmployeOptions employee={params.row } />
         )
@@ -90,7 +90,7 @@ export const EmployeesTable = () => {
                         },
                     },
                 }}
-                rowHeight={70}
+                rowHeight={80}
                 pageSizeOptions={[7]}
             />
         </Box>

@@ -35,48 +35,49 @@ export const EmployeesProvider: FC<Props> = ({ children }) => {
         await apiMethods.put(`/api/v1/employee/${employeeId}`, updateEmployeeBody);
     }
 
+
+    const validVaccinationState = ( employee: Employee, vaccinationState: vaccinatedState ) => {
+        if( vaccinationState === "all" ){
+            return true;
+        }
+        return (employee.vaccinatedState == vaccinationState); 
+    }
+
+    const validVaccineType = ( employee: Employee, vaccineType: vaccineType ) => {
+        if(vaccineType === -1 ){
+            return true;
+        }
+        return (employee.vaccineType == vaccineType);
+    }
+
+    const validDateRange = (employee: Employee, startDate: string, endDate: string) => {
+        if(startDate === "" && endDate === ""){
+            return true;
+        }
+
+        return ( startDate !== "" && endDate !== "" && employee.vaccinationDate != null ) 
+            && (toMs(employee.vaccinationDate) > toMs(startDate) && toMs(employee.vaccinationDate) < toMs(endDate));
+    } 
+
     const filterEmployee = async (vaccinationState: vaccinatedState, vaccineType: vaccineType, startDate: string, endDate: string) => {
 
-        let filteredEmployees: Employee[] = [];
+        if(vaccinationState === "all" && vaccineType ===-1 && startDate === "" && endDate === "" ){
+            dispatch({ type: "[Employee] - change filtered employees", payload: state.totalEmployees});
+            return;
+        }
 
+
+        let filteredEmployees: Employee[] = [];
+        
         state.totalEmployees.forEach(
             (employee: Employee)=> {
-                if( employee.vaccinatedState === (vaccinationState) ){
-                    filteredEmployees.push(employee);
-                }
-                if( vaccineType !== -1 && employee.vaccineType == vaccineType ){
+                if( validVaccinationState(employee, vaccinationState) && validVaccineType(employee, vaccineType) && validDateRange(employee, startDate, endDate) ){
                     filteredEmployees.push(employee);
                 }
             }
         );
-
-        console.log(filteredEmployees)
-
-
         
-
-        // if (vaccineType !== -1) {
-        //     console.log('no ')
-        //     filteredEmployees = filteredEmployees.filter((employee) => (employee.vaccineType == vaccineType))
-        // }
-
-        // if (startDate !== "" && endDate !== "") {
-        //     console.log('no')
-        //     let preDate = toMs(startDate);
-        //     let postDate = toMs(endDate);
-
-        //     filteredEmployees = filteredEmployees.filter(
-        //         (employee) => {
-        //             if (employee.vaccinationDate) {
-        //                 return (toMs(employee.vaccinationDate) > preDate && toMs(employee.vaccinationDate) < postDate);
-        //             }
-        //             return false;
-        //         }
-        //     );
-
-        // }
-
-        // console.log(filteredEmployees)
+        dispatch({ type: "[Employee] - change filtered employees", payload: filteredEmployees});
     
     }
 

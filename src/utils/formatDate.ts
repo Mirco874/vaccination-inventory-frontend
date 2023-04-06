@@ -14,5 +14,5 @@ export const dayMonthYearToYearMonthDay = ( date: string ): string =>{
 
 export const toMs = (dateStr: string): number => {
     let parts: string[] = dateStr.split("-");
-    return new Date( Number(parts[2]), Number(parts[1]) - 1, Number(parts[0])).getTime()
+    return new Date( Number(parts[0]), Number(parts[1]) - 1, Number(parts[2])).getTime()
   }

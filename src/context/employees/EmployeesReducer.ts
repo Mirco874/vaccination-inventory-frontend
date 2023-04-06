@@ -3,7 +3,7 @@ import { EmployeesState } from '..';
 
 type EmployeeAction=
 | { type: '[Employee] - load employees', payload: Employee[]}
-| { type: '[Employee] - change filter employees', payload: Employee[]}
+| { type: '[Employee] - change filtered employees', payload: Employee[]}
 
 export const EmployeesReducer = ( state: EmployeesState , action: EmployeeAction ): EmployeesState => {
 
@@ -14,7 +14,7 @@ export const EmployeesReducer = ( state: EmployeesState , action: EmployeeAction
                 totalEmployees: action.payload,
                 filteredEmployees: action.payload
             };
-        case "[Employee] - change filter employees":
+        case "[Employee] - change filtered employees":
             return { 
                 ...state,
                 filteredEmployees: action.payload

@@ -1,11 +1,10 @@
-import { FC, useContext } from "react";
-import { Button, Grid, Modal, Typography } from "@mui/material";
 import ErrorOutlineIcon from "@mui/icons-material/ErrorOutline";
-import { User } from "../../../interfaces";
-import "./DeleteEmpoyeeModal.css";
+import { Button, Grid, Modal, Typography } from "@mui/material";
+import { Box } from "@mui/system";
+import { FC, useContext } from "react";
 import { EmployeeManagerContext, EmployeesContext } from "../../../context";
 import { remove } from "../../../utils/apiMethods";
-import { Box } from "@mui/system";
+import "./DeleteEmpoyeeModal.css";
 
 interface Props {
   isOpen: boolean;
