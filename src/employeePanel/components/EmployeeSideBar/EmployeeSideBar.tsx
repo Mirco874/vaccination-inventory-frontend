@@ -17,8 +17,8 @@ export const EmployeeSideBar = () => {
         >   
             <Menu>
                 <MenuItem className="user-data">
-                    <Typography variant="h5" >Employee</Typography>
-                    <Typography variant="h6" >Mirco Pilco</Typography>
+                    <Typography variant="h5" ></Typography>
+                    <Typography variant="h6" ></Typography>
                 </MenuItem>
                 
                 <Divider/>
