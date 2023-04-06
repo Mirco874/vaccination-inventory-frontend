@@ -37,7 +37,7 @@ const columns: GridColDef[] = [
         )
     },
     { 
-        field: "vaccinationStatus",
+        field: "vaccinatedState",
         headerName: "Vaccination status", 
         width: 130, 
         sortable: false,
@@ -45,8 +45,8 @@ const columns: GridColDef[] = [
             <EmployeeVacStatus status={params.row.vaccinationStatus} />
         )
     },
-    { field: "typeOfVaccine", headerName: "Type of vaccine", width: 130, sortable: false },
-    { field: "numberOfDoses", headerName: "Doses", width: 60, sortable: false },
+    { field: "vaccineType", headerName: "Type of vaccine", width: 130, sortable: false },
+    { field: "doses", headerName: "Doses", width: 60, sortable: false },
     { field: "vaccinationDate", headerName: "Vaccination date", width: 110, sortable: false },
     { 
         field: "options", 
@@ -71,10 +71,10 @@ export const EmployeesTable = () => {
             email: employee.email,
             phone: employee.phone
         },
-        vaccinationStatus: employee.vaccinationStatus,
-        typeOfVaccine: employee.typeOfVaccine,
+        vaccinatedState: employee.vaccinatedState,
+        vaccineType: employee.vaccineType,
         vaccinationDate: employee.vaccinationDate,
-        numberOfDoses: employee.numberOfDoses
+        doses: employee.doses
     }))
 
   return (

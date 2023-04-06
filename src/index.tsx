@@ -5,10 +5,13 @@ import { BrowserRouter } from 'react-router-dom';
 import { ProSidebarProvider } from 'react-pro-sidebar';
 
 import { CssBaseline, ThemeProvider } from '@mui/material';
-import { FilterProvider, UIProvider } from './context';
+import { FilterProvider, UIProvider, UserProvider } from './context';
 
 import { lightTheme } from './themes';
 import { App } from './App';
+import { LocalizationProvider } from '@mui/x-date-pickers';
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
+
 import "./index.css"
 
 
@@ -17,6 +20,8 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
+    <LocalizationProvider dateAdapter={AdapterDayjs}>
+    <UserProvider>
     <FilterProvider>
       <UIProvider>
       <ProSidebarProvider>
@@ -29,6 +34,8 @@ root.render(
         </ProSidebarProvider>
       </UIProvider>
     </FilterProvider>
+    </UserProvider>
+    </LocalizationProvider>
   </React.StrictMode>
 );
 

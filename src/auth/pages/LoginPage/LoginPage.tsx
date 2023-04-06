@@ -8,7 +8,6 @@ import Alert from '@mui/material/Alert';
 import { decodeJWT, validations } from "../../../utils";
 import { employeesApi } from "../../../api";
 
-
 import "./LoginPage.css"
 
 type FormData = {
@@ -22,10 +21,11 @@ const initialFormValues: FormData = {
 }
 
 export const LoginPage = () => {
+  const { register, handleSubmit, formState: { errors } } = useForm<FormData>({ defaultValues: initialFormValues});
+  const [hasError,setHasError]= useState(false);
 
-const { register, handleSubmit, formState: { errors } } = useForm<FormData>({ defaultValues: initialFormValues});
-const navigate = useNavigate();
-const [hasError,setHasError]= useState(false);
+  const navigate = useNavigate();
+
 
  const onSubmitLogin =  async ( data: FormData ) => {
     try {

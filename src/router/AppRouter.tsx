@@ -1,9 +1,8 @@
 import { FC } from "react";
-
 import { Routes, Route } from 'react-router-dom'
-import { AdministrationPanelRoutes } from "../administrationPanel/routes";
 import { AuthRoutes } from "../auth/routes";
 import { EmployeePanelRoutes } from "../employeePanel/routes";
+import { AdministrationPanelRoutes } from "../administrationPanel/routes/AdministrationPanelRoutes";
 
 export const AppRouter: FC = () => {
     return (
