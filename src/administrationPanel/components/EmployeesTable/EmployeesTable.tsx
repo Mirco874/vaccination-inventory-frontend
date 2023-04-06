@@ -1,11 +1,12 @@
 import { Box } from "@mui/material";
 import { DataGrid, GridColDef, GridRenderCellParams } from '@mui/x-data-grid';
 
-import { useContext } from "react";
+import { FC, useContext } from "react";
 import { EmployeOptions, EmployeeBasicInfo, EmployeeContactInfo, EmployeeVacStatus } from "../";
 import { EmployeesContext } from "../../../context";
-import { Employee } from "../../../interfaces";
+import { Employee, User } from "../../../interfaces";
 import "./EmployeesTable.css";
+
 
 const columns: GridColDef[] = [
     { field: "id", headerName: "ID", width: 10 },
@@ -51,11 +52,10 @@ const columns: GridColDef[] = [
         headerName: "Options",
         width: 140,
         renderCell: (params: GridRenderCellParams) => (
-            <EmployeOptions employeId={params.row.basicInfo.identityCard} />
+            <EmployeOptions employee={params.row } />
         )
     }
 ];
-
 
 export const EmployeesTable = () => {
 

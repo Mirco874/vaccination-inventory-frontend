@@ -6,7 +6,8 @@ interface Props {
     status: boolean
 }
 
-export const EmployeeVacStatus: FC<Props> = ({ status = false }) => {
+export const EmployeeVacStatus: FC<Props> = ({ status }) => {
+    console.log(status)
     if( status ){
         return <Chip color="success" label="Vaccinated" variant='outlined' />
     }

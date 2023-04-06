@@ -1,81 +1,54 @@
-import { Button, Grid, TextField } from "@mui/material";
-import { FC } from "react";
+import { Button, Grid, TextField, Typography } from "@mui/material";
+import { FC, useContext } from "react";
 import { useForm } from "react-hook-form";
 import { validations } from "../../../utils";
+import { EmployeeManagerContext } from "../../../context";
 
 interface Props { 
-    onSubmit?: ()=> void;
     onCancel: ()=> void;
 }
 
 type FormData = {
-    identityCard: string;
     name: string;
     lastName: string;
-    email: string;
   }
   
-  const initialFormValues = {
-    identityCard: "",
-    name: "",
-    lastName: "",
-    email: "",
-  }
+export const EditEmployeeForm: FC<Props> = ({ onCancel }) => {
 
-export const EditEmployeeForm: FC<Props> = ({ onSubmit, onCancel }) => {
+    const { targetEmployee } =useContext(EmployeeManagerContext);
+
+    const initialFormValues: FormData = {
+        name: targetEmployee.basicInfo.name,
+        lastName: targetEmployee.basicInfo.lastName,
+      }
 
     const { register, handleSubmit, formState: { errors } } = useForm<FormData>({ defaultValues: initialFormValues});
 
-    const onSubmitLogin = ( data: FormData ) => {
+    const onSubmit = ( data: FormData ) => {
         console.log(data)
-       if(onSubmit){
-        onSubmit();
-       }
     }
 
   return (
     <form 
         className="register-employee-form" 
         noValidate
-        onSubmit={ handleSubmit(onSubmitLogin) }
+        onSubmit={ handleSubmit(onSubmit) }
     >
-        <Grid container spacing={1}>
+        <Grid container spacing={1} marginTop="20px">
                 
-                <Grid item xs={6}>
-                    <TextField 
-                        label="Identity card*:"
-                        variant='filled'
-                        type="text"
-                        size="small"
-                        fullWidth
-                        { ...register("identityCard", {
-                            required: "This field is required",
-                            validate: validations.isIdentityCard,
-                            maxLength: { value: 10, message: 'The identity card must contain ten characters' },
-                            minLength: { value: 10, message: 'The identity card must contain ten characters' }
-                        })}
-                        error={!!errors.identityCard}
-                        helperText={ errors.identityCard?.message } 
-                    />
+                <Grid item xs={8}>
+                    <Typography variant="body1" > 
+                        <b>IdentityCard: </b> {targetEmployee.basicInfo.identityCard}
+                     </Typography>
+                </Grid>
+
+                <Grid item xs={8}>
+                    <Typography variant="body1" > 
+                        <b>Email:</b>  {targetEmployee?.contactInfo.email} 
+                    </Typography>
                 </Grid>
 
                 <Grid item xs={6}>
-                    <TextField 
-                        label="Email*:"
-                        variant='filled'
-                        type="email" 
-                        size="small"
-                        fullWidth
-                        { ...register("email", {
-                            required: "This field is required",
-                            validate: validations.isEmail,
-                        })}
-                        error={!!errors.email}
-                        helperText={ errors.email?.message }
-                    />
-                </Grid>
-
-                <Grid item xs={12}>
                     <TextField 
                     label="Name*:" 
                     variant='filled'
@@ -91,7 +64,7 @@ export const EditEmployeeForm: FC<Props> = ({ onSubmit, onCancel }) => {
                     />
                 </Grid>
 
-                <Grid item xs={12}>
+                <Grid item xs={6}>
                     <TextField
                         label="Last name*:"     
                         variant='filled'

@@ -3,9 +3,10 @@ import { Routes, Route, useNavigate } from "react-router-dom"
 import { NavBar } from "../../ui/components"
 import { RegisterEmployeePage, ReviewEmployeesPage } from "../pages"
 import { AdministrationSideBar } from "../components";
-import { useCallback, useEffect } from "react";
+import { useCallback, useContext, useEffect } from "react";
 import { existUserLogged } from "../../utils/apiMethods";
 import { decodeJWT } from "../../utils";
+import { EmployeesContext } from "../../context";
 
 export const AdministrationPanelRoutes = () => {
   const navigate =useNavigate();
@@ -24,12 +25,6 @@ export const AdministrationPanelRoutes = () => {
       }
 
   } , [navigate])
-
- useEffect(
-  ()=>{
-    verifyUserLogged()
-  },[verifyUserLogged]
-  )
 
   return (
     <>      
