@@ -2,7 +2,7 @@
 import { Box} from "@mui/material";
 import { DataGrid, GridColDef, GridRenderCellParams} from '@mui/x-data-grid';
 
-import { employeesDataDB } from "../../../db/employees";
+import { employeesDataDB } from "../../../data/employees";
 import { Employee } from "../../../interfaces"
 import { EmployeeBasicInfo, EmployeeContactInfo, EmployeOptions, EmployeeVacStatus } from "../";
 import "./EmployeesTable.css"

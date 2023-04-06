@@ -17,10 +17,6 @@ export const Selector: FC<Props> = ({ value, label, options, onValueChange }) =>
     }
     
   return (
-  <Box display="flex" flexDirection="column">
-    <InputLabel>
-        {label}
-    </InputLabel>
     <TextField
         select
         variant="outlined"
@@ -30,15 +26,13 @@ export const Selector: FC<Props> = ({ value, label, options, onValueChange }) =>
     >
         {
         options.map(
-            (option)=>(
-                <MenuItem key={option.key} value={option.key} >
-                    {option.value}
+            (option, index)=>(
+                <MenuItem key={index} value={option.value} >
+                    {option.name}
                 </MenuItem>
         ))
         }
 
     </TextField>
-  </Box>
-
   )
 }

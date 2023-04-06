@@ -1,7 +1,7 @@
 import { FC, useState} from "react"
 import { Button, Grid, InputLabel, Modal, TextField, Typography } from "@mui/material";
 import { Selector } from "../../../ui/components";
-import { vaccinationTypeOptions } from "../../../db/vaccinationType";
+import { vaccinationTypeOptions } from "../../../data/vaccinationType";
 
 import "./RegisterVaccinationModal.css"
 

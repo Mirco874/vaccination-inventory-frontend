@@ -33,6 +33,29 @@ export const isValidEmail = (email: string): boolean => {
       return !!match;
   };
 
+  export const isValidNumberOfDoses= (identityCard: string): boolean => {
+  
+    const match = String(identityCard)
+        .toLowerCase()
+        .match(
+          /^[1-9]{1}$/
+        );
+  
+      return !!match;
+  };
+
+
+  export const isGreaterThanOne = (value: string): boolean => {
+  
+    const match = String(value)
+        .toLowerCase()
+        .match(
+          /^[1-9]{1}$/
+        );
+  
+      return !!match;
+  };
+
   export const isEmail = (email: string): string | undefined => {
     return isValidEmail(email) 
       ? undefined
@@ -50,4 +73,16 @@ export const isValidEmail = (email: string): boolean => {
     return isValidNameOrLastName(text) 
       ? undefined
       : 'Numbers and special characters are not allowed in this field';
+  }
+
+  export const isCorrectNumberOfDoses = (value: number): string | undefined => {
+    return isValidNumberOfDoses(value.toString()) 
+      ? undefined
+      : 'wrong dose number, only values ​​from 1 to 9 are allowed';
+  }
+
+  export const isValidVaccineType = (value: number): string | undefined => {
+    return isValidNumberOfDoses(value.toString()) 
+      ? undefined
+      : 'select a vaccine';
   }
