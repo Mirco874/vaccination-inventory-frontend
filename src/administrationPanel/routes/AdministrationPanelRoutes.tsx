@@ -26,6 +26,12 @@ export const AdministrationPanelRoutes = () => {
 
   } , [navigate])
 
+
+  useEffect(()=>{
+    verifyUserLogged()
+  },[])
+
+
   return (
     <>      
         <NavBar />
