@@ -40,9 +40,10 @@ export const RegisterVaccinationForm: FC<Props> = ({ userId })=> {
           try {
             const body = { 
                 ...data, 
+                vaccinated: true,
                 vaccinationDate: data.vaccinationDate.format("YYYY-MM-DD") 
             };
-            await put(`/api/v1/employee/${userId}/register-vaccination`, body);
+            await put(`/api/v1/employee/${userId}/update-vaccine-information`, body);
 
           } catch (error) {
             alert("Error interno del servidor");

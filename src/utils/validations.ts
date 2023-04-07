@@ -45,12 +45,12 @@ export const isValidEmail = (email: string): boolean => {
   };
 
 
-  export const isGreaterThanOne = (value: string): boolean => {
+  export const isGreaterThanCero = (value: string): boolean => {
   
     const match = String(value)
         .toLowerCase()
         .match(
-          /^[1-9]{1}$/
+          /^[0-9]{1}$/
         );
   
       return !!match;
@@ -82,7 +82,7 @@ export const isValidEmail = (email: string): boolean => {
   }
 
   export const isValidVaccineType = (value: number): string | undefined => {
-    return isValidNumberOfDoses(value.toString()) 
+    return isGreaterThanCero(value.toString()) 
       ? undefined
       : 'select a vaccine';
   }

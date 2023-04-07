@@ -62,7 +62,7 @@ export const UpdateProfileInfoForm: FC<Props> = ({ user }) => {
           birthDate: data.birthdate.format("YYYY-MM-DD"),
         };
 
-        await put(`/api/v1/employee/${user?.id}/update-profile-information`,body );
+        await put(`/api/v1/employee/${user?.id}/update-personal-information`,body );
       } catch (error) {
         alert("Error interno del servidor");
       }
@@ -93,6 +93,7 @@ export const UpdateProfileInfoForm: FC<Props> = ({ user }) => {
               required: "This field is required",
             })}
             name="birthdate"
+            defaultValue={user? user?.birthDate : ""}
             onBlur={onBlur}
             onChange={onDateChange}
             ref={ref}

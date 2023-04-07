@@ -19,11 +19,12 @@ interface Props {
   minDate: Date;
   maxDate: Date;
   ref: RefCallBack;
+  defaultValue?: string;
   hasError: boolean;
   helperText?: string
 }
 
-export const DateSelector: FC<Props > = ({label, name, onChange, minDate, maxDate, ref, hasError, helperText}) => {
+export const DateSelector: FC<Props > = ({label, name, onChange, defaultValue, minDate, maxDate, ref, hasError, helperText}) => {
 
   const [error, setError] = React.useState<DateValidationError | null>(null);
 
@@ -55,6 +56,7 @@ export const DateSelector: FC<Props > = ({label, name, onChange, minDate, maxDat
           minDate={dayjs(minDate.toISOString())}
           maxDate={dayjs(maxDate.toISOString())}
           onError={(newError) => setError(newError)}
+          defaultValue={dayjs(defaultValue)}
           slotProps={{
             textField: {
               error: hasError || errorMessage.length>0,
