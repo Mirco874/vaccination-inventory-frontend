@@ -1,4 +1,4 @@
-import { FC, useState} from "react"
+import { FC, useContext} from "react"
 import { Box, Button, Grid, InputLabel, MenuItem, Modal, TextField, Typography } from "@mui/material";
 import { DateSelector, Selector } from "../../../ui/components";
 import dayjs, { Dayjs } from "dayjs";
@@ -6,6 +6,7 @@ import { useForm } from "react-hook-form";
 import { put } from "../../../utils/apiMethods";
 import { vaccineTypeOptions } from "../../../data/";
 import { validations } from "../../../utils";
+import { UserContext } from "../../../context";
 
 interface Props {
     userId: number;
@@ -27,6 +28,8 @@ export const RegisterVaccinationForm: FC<Props> = ({ userId })=> {
         doses: 0,
     };
 
+    const { user, loadLoggedUserData } = useContext(UserContext);
+
     const { register, handleSubmit, formState: { errors }, setValue } = useForm<FormData>({ defaultValues: initialFormValues });
 
     const onDateChange = (newValue: any) => {
@@ -44,6 +47,8 @@ export const RegisterVaccinationForm: FC<Props> = ({ userId })=> {
                 vaccinationDate: data.vaccinationDate.format("YYYY-MM-DD") 
             };
             await put(`/api/v1/employee/${userId}/update-vaccine-information`, body);
+
+            loadLoggedUserData(user!.id)
 
           } catch (error) {
             alert("Error interno del servidor");
