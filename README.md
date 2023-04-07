@@ -1,46 +1,38 @@
-# Getting Started with Create React App
+# Welcome to the aplication: "Manager app"
+Manager app is an application dedicated to the administration of the vaccination status of employees.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Used technologies:
+ - **Front End Programming language:** TypeScript
+ - **Library:** React
+ - **Interface library:** Material UI
+ - **HTTP client:** Axios
+ - **Backend:** SpringBoot
 
-## Available Scripts
+## Building process:
+The development of the front end was carried out using react and typescript due to the advantages that the language offers when it comes to keeping the code understandable for future improvements.
+At the beginning of the project, we worked with data in json files and after implementing the backend, Axios was used for communication, in addition, the api methods were built to make requests without rewriting the request headers.
+To control the form fields react hook form was used, which allows implementing regular expressions and controlling the values before they are sent. For the interface, UI material was used that facilitates the creation of interfaces that are pleasing to the eye and allows the creation of themes to customize the designs, although on occasions it was decided to import css files when it was necessary to modify specific parts in the components, for the creation of routes and navigation react router dom was used and to protect routes methods were created to validate the tokens and delete them from local storage if they were invalid.
 
-In the project directory, you can run:
+The backend It was developed using springboot and a postgres database, following the hexagonal software architecture, the repository can be found at the link: https://github.com/Mirco874/vaccination-inventory-backend/tree/main
+In order for the application to work without having to download two repositories, the backend was uploaded to a server on the Internet using docker for the database and the application separately.
+**Note:** the backend can only be used if the application is running on localhost:3000
 
-### `npm start`
+## Features:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+In this application an administrator can:
+- Add, review, edit and delete employees
+- Filter registered users
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+and employees can:
+- Add and edit their contact information
+- Add thier vaccination information
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Instalation:
+To run this application you should:
+ - Download this repository
+ - Access application files with a command terminal
+ - Run the command: "npm run i" to install the dependencies
+ - Before starting the app, you will need to set the environment variables in the **.env** file, to do this rename the file called **.env_template** to **.env**.
+ - Modify the variable **REACT_APP_BACKEND_URL** with the url: http://149.28.237.37:8080
+ - Modify the variable **REACT_APP_BACKEND_VERIFY_TOKEN_URL** with the url: http://149.28.237.37:8080/api/v1/employee
+ - Run the command: "npm run start"
