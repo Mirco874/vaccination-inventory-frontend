@@ -2,7 +2,8 @@ import { Button, Grid, TextField, Typography } from "@mui/material";
 import { FC, useContext } from "react";
 import { useForm } from "react-hook-form";
 import { validations } from "../../../utils";
-import { EmployeeManagerContext } from "../../../context";
+import { EmployeeManagerContext, EmployeesContext } from "../../../context";
+import { put } from "../../../utils/apiMethods";
 
 interface Props { 
     onCancel: ()=> void;
@@ -16,7 +17,8 @@ type FormData = {
 export const EditEmployeeForm: FC<Props> = ({ onCancel }) => {
 
     const { targetEmployee } =useContext(EmployeeManagerContext);
-
+    const { loadEmployees } = useContext(EmployeesContext);
+    
     const initialFormValues: FormData = {
         name: targetEmployee.basicInfo.name,
         lastName: targetEmployee.basicInfo.lastName,
@@ -24,8 +26,14 @@ export const EditEmployeeForm: FC<Props> = ({ onCancel }) => {
 
     const { register, handleSubmit, formState: { errors } } = useForm<FormData>({ defaultValues: initialFormValues});
 
-    const onSubmit = ( data: FormData ) => {
-        console.log(data)
+    const onSubmit = async ( data: FormData ) => {
+        try {
+            await put(`/api/v1/employee/${targetEmployee.id}/update-employee-information`, data);
+            loadEmployees();
+            onCancel();
+        } catch (error) {
+            alert("Error interno del servidor")
+        }
     }
 
   return (
@@ -79,6 +87,7 @@ export const EditEmployeeForm: FC<Props> = ({ onCancel }) => {
                         helperText={ errors.lastName?.message }
                     />
                 </Grid>
+
 
                 <Grid item xs={6} my="10px" display="flex" justifyContent="space-between" >
                     <Button  variant="contained" type='submit'> Save </Button>

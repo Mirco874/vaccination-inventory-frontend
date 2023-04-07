@@ -3,6 +3,7 @@ import { EmployeesContext, EmployeesReducer } from '../';
 import { Employee, vaccinatedState, vaccineType } from '../../interfaces';
 import { apiMethods } from '../../utils';
 import { toMs } from '../../utils/formatDate';
+import { vaccineFilterOptions } from '../../data';
 
 export interface EmployeesState {
     totalEmployees: Employee[];
@@ -47,7 +48,6 @@ export const EmployeesProvider: FC<Props> = ({ children }) => {
         if(vaccineType === -1 ){
             return true;
         }
-        console.log(employee.vaccineType, vaccineType)
         return (employee.vaccineType == vaccineType);
     }
 

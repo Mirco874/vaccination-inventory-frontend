@@ -2,8 +2,7 @@ import {FC, useContext} from "react";
 import { Grid, Modal , Typography } from "@mui/material";
 import "./EditEmployeeModal.css"
 import { EditEmployeeForm } from "../EditEmployeeForm/EditEmployeeForm";
-import { User } from "../../../interfaces";
-import { EmployeeManagerContext } from "../../../context";
+
 
 interface Props {
   isOpen: boolean;
@@ -11,8 +10,6 @@ interface Props {
 }
 
 export const EditEmployeeModal: FC<Props> = ({ isOpen = false, onClose }) => {
-
-  const {targetEmployee} = useContext(EmployeeManagerContext);
 
   return (
       <Modal
