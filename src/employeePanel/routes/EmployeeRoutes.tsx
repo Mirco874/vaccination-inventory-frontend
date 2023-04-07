@@ -1,10 +1,13 @@
 import {useCallback, useEffect, useContext} from "react";
 import { Routes, Route, useNavigate } from "react-router-dom"
+
 import { Grid } from "@mui/material"
+
+import { UpdateProfilePage, WatchProfilePage, WelcomePage } from "../pages"
 
 import { NavBar } from "../../ui/components"
 import { EmployeeSideBar } from "../components"
-import { UpdateProfilePage, WatchProfilePage, WelcomePage } from "../pages"
+
 import { existUserLogged } from "../../utils/apiMethods";
 import { decodeJWT } from "../../utils";
 import { UserContext } from "../../context";

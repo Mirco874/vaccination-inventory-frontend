@@ -1,14 +1,13 @@
-import { Sidebar, SubMenu, Menu, MenuItem } from "react-pro-sidebar";
-import { Box, Divider, Typography } from "@mui/material";
+import { Box, Divider } from "@mui/material";
+import { Menu, Sidebar, SubMenu } from "react-pro-sidebar";
 
 import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
-import TocOutlinedIcon from '@mui/icons-material/TocOutlined';
-import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined';
 import PersonAddAltIcon from '@mui/icons-material/PersonAddAlt';
+import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined';
+import TocOutlinedIcon from '@mui/icons-material/TocOutlined';
 
 import { ProfileMenuItem, SideBarItem } from "../../../ui/components";
-import "./AdministrationSideBar.css"
-import { UserContext } from "../../../context";
+import "./AdministrationSideBar.css";
 
 
 export const AdministrationSideBar = () => {

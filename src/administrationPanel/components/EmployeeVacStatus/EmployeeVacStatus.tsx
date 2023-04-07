@@ -1,13 +1,11 @@
 import { FC } from "react"
 import { Chip } from "@mui/material"
 
-
 interface Props {
     status: boolean
 }
 
 export const EmployeeVacStatus: FC<Props> = ({ status }) => {
-    console.log(status)
     if( status ){
         return <Chip color="success" label="Vaccinated" variant='outlined' />
     }

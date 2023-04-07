@@ -3,7 +3,7 @@ import { FC, useContext } from "react";
 import { Box, Button, Divider } from "@mui/material";
 import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
 import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
-import { User } from "../../../interfaces";
+
 import { EmployeeManagerContext } from "../../../context";
 
 

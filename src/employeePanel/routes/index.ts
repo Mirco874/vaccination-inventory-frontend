@@ -1,1 +1,1 @@
-export * from "./EmployeeRoutes"
+export * from "./EmployeeRoutes";

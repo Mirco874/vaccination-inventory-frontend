@@ -1,9 +1,12 @@
+import { FC, useContext } from "react";
+
+import { Box } from "@mui/system";
 import ErrorOutlineIcon from "@mui/icons-material/ErrorOutline";
 import { Button, Grid, Modal, Typography } from "@mui/material";
-import { Box } from "@mui/system";
-import { FC, useContext } from "react";
+
 import { EmployeeManagerContext, EmployeesContext } from "../../../context";
 import { remove } from "../../../utils/apiMethods";
+
 import "./DeleteEmpoyeeModal.css";
 
 interface Props {

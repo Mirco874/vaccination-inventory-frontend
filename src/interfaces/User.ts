@@ -4,12 +4,12 @@ export interface User {
     lastName: string;
     identityCard: number; 
     email: string;
-    birthDate: string;    //ToDo: check type
+    birthDate: string;
     address: string;
     phone: string;
     vaccinatedState: vaccinatedState;
     vaccineType: vaccineType;
-    vaccinationDate: string | null;  //ToDo: check type
+    vaccinationDate: string | null;  
     doses: number | null;
 }
 export type vaccinatedState = string | -1;

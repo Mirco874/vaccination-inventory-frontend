@@ -1,5 +1,6 @@
-import { ToggleButton, ToggleButtonGroup, Typography } from "@mui/material";
 import { FC } from "react";
+
+import { ToggleButton, ToggleButtonGroup, Typography } from "@mui/material";
 
 interface Props {
     isActive: boolean;

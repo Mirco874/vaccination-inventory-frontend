@@ -1,9 +1,12 @@
-import { Alert, Box, Card, CardContent, CardMedia, Divider, Grid, Typography } from "@mui/material";
 import { useContext } from "react";
+
+import { Box, Card, CardContent, Divider, Grid, Typography } from "@mui/material";
+
 import { UserContext } from "../../../context";
-import "./WatchProfilePage.css";
+
 import { MissingInformationWarning, UserPhoto, UserProfileInformation } from "../../components";
 
+import "./WatchProfilePage.css";
 
 export const WatchProfilePage = () => {
   const { user } = useContext(UserContext);

@@ -1,10 +1,9 @@
 import { useContext } from "react";
+
 import { Alert, AlertTitle, Box, Divider, Grid, Typography } from "@mui/material";
+
 import { UserContext } from "../../../context";
-import {
-  RegisterVaccinationForm,
-  UpdateProfileInfoForm,
-} from "../../components";
+import { RegisterVaccinationForm,UpdateProfileInfoForm } from "../../components";
 
 export const UpdateProfilePage = () => {
   const { user } = useContext(UserContext);

@@ -1,7 +1,6 @@
 import { User } from '../../interfaces';
 import { EmployeeManagerState } from '../';
 
-
 type EmployeeManagerAction=
 | { type: '[Employee Manager] - set target user', payload: User}
 | { type: '[Employee Manager] - open edit modal'}

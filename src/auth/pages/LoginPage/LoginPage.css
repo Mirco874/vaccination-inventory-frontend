@@ -4,9 +4,8 @@
     flex-direction: column;
 }
 
-.form-container {
-    background-color: #FAF0E6; 
-    width: 30%;
+.form-container { 
+    width: 40%;
     border-radius: 20px;
 }
 

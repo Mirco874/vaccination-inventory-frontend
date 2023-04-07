@@ -1,12 +1,14 @@
+import { useContext } from "react";
+
 import { Box } from "@mui/material";
 import { DataGrid, GridColDef, GridRenderCellParams } from '@mui/x-data-grid';
 
-import { useContext } from "react";
 import { EmployeOptions, EmployeeBasicInfo, EmployeeContactInfo, EmployeeVacStatus } from "../";
+
 import { EmployeesContext } from "../../../context";
 import { Employee } from "../../../interfaces";
-import "./EmployeesTable.css";
 
+import "./EmployeesTable.css";
 
 const columns: GridColDef[] = [
     { field: "id", headerName: "ID", width: 10 },

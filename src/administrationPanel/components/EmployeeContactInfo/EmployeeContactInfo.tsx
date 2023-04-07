@@ -4,7 +4,6 @@ import { Box, Typography } from "@mui/material";
 import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
 import EmailIcon from '@mui/icons-material/Email';
 
-
 interface Props {
     email: string;
     phone: string;

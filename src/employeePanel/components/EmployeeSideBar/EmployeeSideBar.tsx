@@ -1,5 +1,5 @@
-import {  Box, Divider, Typography } from "@mui/material";
-import { Menu, MenuItem, Sidebar, SubMenu } from "react-pro-sidebar";
+import {  Box, Divider } from "@mui/material";
+import { Menu, Sidebar, SubMenu } from "react-pro-sidebar";
 import { ProfileMenuItem, SideBarItem } from "../../../ui/components";
 
 import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';

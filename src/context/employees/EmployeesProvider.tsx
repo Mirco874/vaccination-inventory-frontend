@@ -1,9 +1,8 @@
 import { FC, useCallback, useReducer } from 'react';
 import { EmployeesContext, EmployeesReducer } from '../';
-import { Employee, vaccinatedState, vaccineType } from '../../interfaces';
+import { Employee } from '../../interfaces';
 import { apiMethods } from '../../utils';
 import { toMs } from '../../utils/formatDate';
-import { vaccineFilterOptions } from '../../data';
 
 export interface EmployeesState {
     totalEmployees: Employee[];

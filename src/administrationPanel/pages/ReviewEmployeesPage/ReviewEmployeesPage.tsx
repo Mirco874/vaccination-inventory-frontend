@@ -1,9 +1,9 @@
+import { useContext, useEffect } from "react";
+
 import { Box, Grid, Typography } from "@mui/material";
 
 import { DeleteEmpoyeeModal, EditEmployeeModal, EmployeesTable, FilterEmployeesOptions } from "../../components";
-import { useContext, useEffect, useState } from "react";
 import { EmployeeManagerContext, EmployeesContext } from "../../../context";
-import { User } from "../../../interfaces";
 
 export const ReviewEmployeesPage = () => {
 

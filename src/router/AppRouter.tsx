@@ -1,5 +1,6 @@
 import { FC } from "react";
 import { Routes, Route } from 'react-router-dom'
+
 import { AuthRoutes } from "../auth/routes";
 import { EmployeePanelRoutes } from "../employeePanel/routes";
 import { AdministrationPanelRoutes } from "../administrationPanel/routes/AdministrationPanelRoutes";

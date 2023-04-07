@@ -1,5 +1,5 @@
 import { createContext } from 'react';
-import { Employee, vaccinatedState, vaccineType } from '../../interfaces';
+import { Employee} from '../../interfaces';
 
 interface ContextProps{
     totalEmployees: Employee[];

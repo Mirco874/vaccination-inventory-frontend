@@ -1,8 +1,7 @@
-import {FC, useContext} from "react";
+import {FC} from "react";
 import { Grid, Modal , Typography } from "@mui/material";
-import "./EditEmployeeModal.css"
 import { EditEmployeeForm } from "../EditEmployeeForm/EditEmployeeForm";
-
+import "./EditEmployeeModal.css"
 
 interface Props {
   isOpen: boolean;

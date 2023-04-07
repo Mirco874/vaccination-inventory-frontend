@@ -1,8 +1,11 @@
 import { useContext, FC } from 'react';
-import { Typography } from '@mui/material';
 import { MenuItem } from 'react-pro-sidebar';
-import "./ProfileMenuItem.css";
+
+import { Typography } from '@mui/material';
+
 import { UserContext } from '../../../context';
+
+import "./ProfileMenuItem.css";
 
 interface Props {
   role: string

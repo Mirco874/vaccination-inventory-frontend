@@ -1,6 +1,6 @@
+import { FC } from "react";
 import { Box, Typography } from "@mui/material";
 import { User } from "../../../interfaces";
-import { FC } from "react";
 
 interface Props {
   user: User | null;

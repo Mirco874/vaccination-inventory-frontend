@@ -22,7 +22,6 @@ export const FormField: FC<Props> = ({ label, variant, type, atributeError }) =>
             type={type}
             error={!!atributeError}
             helperText={ atributeError?.message }
-            // value={formatDate.dayMonthYearToYearMonthDay(startDate)}
         />
     </>
 

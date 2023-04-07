@@ -1,6 +1,6 @@
 import { FC, useContext} from "react"
-import { Box, Button, Grid, InputLabel, MenuItem, Modal, TextField, Typography } from "@mui/material";
-import { DateSelector, Selector } from "../../../ui/components";
+import { Box, Button, Grid, MenuItem, TextField, Typography } from "@mui/material";
+import { DateSelector } from "../../../ui/components";
 import dayjs, { Dayjs } from "dayjs";
 import { useForm } from "react-hook-form";
 import { put } from "../../../utils/apiMethods";

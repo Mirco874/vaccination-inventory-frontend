@@ -1,11 +1,13 @@
-import { FC, useContext, useState } from "react";
+import { FC } from "react";
 import { useForm } from "react-hook-form";
-import { Box, Button, TextField, Typography } from "@mui/material";
-import MedicalInformationIcon from "@mui/icons-material/MedicalInformation";
-import { DateSelector } from "../../../ui/components";
+
 import { Dayjs } from "dayjs";
 import isBetween from "dayjs/plugin/isBetween";
-import { UserContext } from "../../../context";
+
+import { Box, Button, TextField, Typography } from "@mui/material";
+
+import { DateSelector } from "../../../ui/components";
+
 import { put } from "../../../utils/apiMethods";
 import { User } from "../../../interfaces";
 

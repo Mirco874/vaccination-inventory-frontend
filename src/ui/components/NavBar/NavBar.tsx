@@ -1,8 +1,10 @@
-import { Logout } from '@mui/icons-material';
-import { AppBar, Box, Button, Toolbar, Typography } from "@mui/material";
 import { useContext } from "react";
-import { UserContext } from "../../../context";
 import { useNavigate } from 'react-router-dom';
+
+import { AppBar, Box, Button, Toolbar, Typography } from "@mui/material";
+import { Logout } from '@mui/icons-material';
+
+import { UserContext } from "../../../context";
 
 import "./NavBar.css"
 

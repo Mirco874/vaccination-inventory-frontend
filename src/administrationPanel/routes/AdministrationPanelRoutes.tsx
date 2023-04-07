@@ -1,12 +1,15 @@
-import { Grid } from "@mui/material"
-import { Routes, Route, useNavigate } from "react-router-dom"
-import { NavBar } from "../../ui/components"
-import { RegisterEmployeePage, ReviewEmployeesPage } from "../pages"
-import { AdministrationSideBar } from "../components";
-import { useCallback, useContext, useEffect } from "react";
-import { existUserLogged } from "../../utils/apiMethods";
+import { useCallback, useEffect } from "react";
+import { Route, Routes, useNavigate } from "react-router-dom";
+
+import { Grid } from "@mui/material";
+
+import { NavBar } from "../../ui/components";
+
 import { decodeJWT } from "../../utils";
-import { EmployeesContext } from "../../context";
+import { existUserLogged } from "../../utils/apiMethods";
+
+import { AdministrationSideBar } from "../components";
+import { RegisterEmployeePage, ReviewEmployeesPage } from "../pages";
 
 export const AdministrationPanelRoutes = () => {
   const navigate =useNavigate();
@@ -30,7 +33,6 @@ export const AdministrationPanelRoutes = () => {
   useEffect(()=>{
     verifyUserLogged()
   },[])
-
 
   return (
     <>      
