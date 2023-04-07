@@ -4,7 +4,7 @@ import { DataGrid, GridColDef, GridRenderCellParams } from '@mui/x-data-grid';
 import { useContext } from "react";
 import { EmployeOptions, EmployeeBasicInfo, EmployeeContactInfo, EmployeeVacStatus } from "../";
 import { EmployeesContext } from "../../../context";
-import { Employee, User } from "../../../interfaces";
+import { Employee } from "../../../interfaces";
 import "./EmployeesTable.css";
 
 
@@ -18,7 +18,7 @@ const columns: GridColDef[] = [
         renderCell: (params: GridRenderCellParams) => (
             <EmployeeBasicInfo
                 identityCard={params.row.basicInfo.identityCard}
-                fullName={params.row.basicInfo.name + params.row.basicInfo.lastName }
+                fullName={`${params.row.basicInfo.name} ${params.row.basicInfo.lastName}` }
                 address={params.row.basicInfo.address}
             />
         )
