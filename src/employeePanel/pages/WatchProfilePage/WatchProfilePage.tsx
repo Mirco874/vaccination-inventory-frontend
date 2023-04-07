@@ -26,8 +26,10 @@ export const WatchProfilePage = () => {
             <Grid xs={12} sm={4}>
               <Box display="flex" flexDirection="column" alignItems="center">
                 <UserPhoto/>
-                <Typography variant="h2"> {user?.fullName} </Typography>
+
+                <Typography variant="h2"> {user?.name} {user?.lastName} </Typography>
                 <Typography variant="body1"> {user?.identityCard} </Typography>
+
               </Box>
             </Grid>
 

@@ -1,6 +1,7 @@
 export interface User {
     id: number;
-    fullName: string;
+    name: string;
+    lastName: string;
     identityCard: number; 
     email: string;
     birthDate: string;    //ToDo: check type

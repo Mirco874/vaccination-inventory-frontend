@@ -13,12 +13,12 @@ const columns: GridColDef[] = [
     {
         field: "basicInfo",
         headerName: "Basic information",
-        width: 170,
+        width: 220,
         sortable: false,
         renderCell: (params: GridRenderCellParams) => (
             <EmployeeBasicInfo
                 identityCard={params.row.basicInfo.identityCard}
-                fullName={params.row.basicInfo.fullName}
+                fullName={params.row.basicInfo.name + params.row.basicInfo.lastName }
                 address={params.row.basicInfo.address}
             />
         )
@@ -44,8 +44,8 @@ const columns: GridColDef[] = [
             <EmployeeVacStatus status={params.row.vaccinatedState} />
         )
     },
-    { field: "vaccineType", headerName: "Type of vaccine", width: 140, sortable: false },
-    { field: "doses", headerName: "Doses", width: 80, sortable: false },
+    { field: "vaccineType", headerName: "Type of vaccine", width: 120, sortable: false },
+    { field: "doses", headerName: "Doses", width: 60, sortable: false },
     { field: "vaccinationDate", headerName: "Vaccination date", width: 130, sortable: false },
     {
         field: "options",
@@ -64,7 +64,8 @@ export const EmployeesTable = () => {
     const rows = filteredEmployees.map((employee: Employee) => ({
         id: employee.id,
         basicInfo: {
-            fullName: employee.fullName,
+            name: employee.name ,
+            lastName: employee.lastName,
             identityCard: employee.identityCard,
             address: employee.address
         },
@@ -72,11 +73,13 @@ export const EmployeesTable = () => {
             email: employee.email,
             phone: employee.phone
         },
-        vaccinationStatus: employee.vaccinatedState,
-        typeOfVaccine: employee.vaccineType,
+        vaccinatedState: employee.vaccinatedState,
+        vaccineType: employee.vaccineType,
         vaccinationDate: employee.vaccinationDate,
-        numberOfDoses: employee.doses
+        doses: employee.doses
     }))
+
+    console.log(rows)
 
     return (
         <Box className="employees-table">
