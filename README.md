@@ -36,3 +36,20 @@ To run this application you should:
  - Modify the variable **REACT_APP_BACKEND_URL** with the url: http://149.28.237.37:8080
  - Modify the variable **REACT_APP_BACKEND_VERIFY_TOKEN_URL** with the url: http://149.28.237.37:8080/api/v1/employee
  - Run the command: "npm run start"
+
+ ## Accounts: 
+
+**email:** admin@gmail.com
+**password:** password
+
+**email:** cliente1@gmail.com
+**password:** 6Tbf1qbSs4
+
+**email:** cliente2@gmail.com
+**password:** AQFkYA3jmb
+
+**email:** cliente3@gmail.com
+**password:** 75VweNqJ5s
+
+**email:**  cliente4@gmail.com
+**password:** rXVtLbyE1K
