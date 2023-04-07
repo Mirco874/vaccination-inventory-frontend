@@ -8,19 +8,19 @@ import PersonAddAltIcon from '@mui/icons-material/PersonAddAlt';
 
 import { ProfileMenuItem, SideBarItem } from "../../../ui/components";
 import "./AdministrationSideBar.css"
+import { UserContext } from "../../../context";
 
 
 export const AdministrationSideBar = () => {
-
     return ( 
         <Sidebar 
-            backgroundColor="#FDF5E6" 
-            style={{height:"100%"}} 
-            width={"100%"}
+            width="100%"
+            backgroundColor="white" 
+            style={{height: "100vh"}}
         >
             <Menu>
 
-            <ProfileMenuItem/>
+            <ProfileMenuItem role="Admin"/>
             
             <Divider/>
             <SideBarItem

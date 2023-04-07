@@ -2,7 +2,7 @@ import { Logout } from '@mui/icons-material';
 import { AppBar, Box, Button, Toolbar, Typography } from "@mui/material";
 import { useContext } from "react";
 import { UserContext } from "../../../context";
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 import "./NavBar.css"
 
@@ -22,6 +22,13 @@ export const NavBar = () => {
   return (
     <AppBar position="sticky">
       <Toolbar >
+
+        <img 
+          src="https://cdn-icons-png.flaticon.com/512/5181/5181835.png" 
+          alt="system logo" 
+          height="35" 
+          width="35"
+        />
 
         <Typography mr="20px" variant="h4" >
           Manager App
