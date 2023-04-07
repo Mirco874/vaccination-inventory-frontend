@@ -22,11 +22,6 @@ export const AdministrationSideBar = () => {
             <ProfileMenuItem role="Admin"/>
             
             <Divider/>
-            <SideBarItem
-              title="Dashboard"
-              to="/panel/home"
-              icon={<HomeOutlinedIcon color="info"/>}
-            />
 
             <SubMenu
                 className="submenu-title"       

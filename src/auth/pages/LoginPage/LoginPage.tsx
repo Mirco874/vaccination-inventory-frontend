@@ -35,7 +35,7 @@ export const LoginPage = () => {
       const { id_rol } = decodeJWT.decodeJWT();
       
       if(id_rol === 0){
-        setTimeout(()=>{navigate("/panel/home")}, 1000);
+        setTimeout(()=>{navigate("/panel/employees")}, 1000);
       }
       else{
         setTimeout(()=>{navigate("/")}, 1000);
