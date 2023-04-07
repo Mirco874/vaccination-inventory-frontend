@@ -63,7 +63,7 @@ export const LoginPage = () => {
           className="form-container"
           boxShadow={2} 
         >
-        <Typography variant="h2"> Log in to your account </Typography>
+        <Typography variant="h3"> Log in to your account </Typography>
         {
           hasError && <Alert severity="warning" >wrong username or password, please check it</Alert>
         }
