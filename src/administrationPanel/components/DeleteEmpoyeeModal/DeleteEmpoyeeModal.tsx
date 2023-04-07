@@ -40,8 +40,8 @@ export const DeleteEmpoyeeModal: FC<Props> = ({ isOpen, onClose }) => {
             <>
               <ErrorOutlineIcon color="error" />
               <Typography variant="h5" component="h2">
-                Do you really want to delete:{" "}
-                {targetEmployee.basicInfo.fullName}?
+                Do you really want to delete:
+                {targetEmployee.basicInfo.name} {targetEmployee.basicInfo.lastName}? 
               </Typography>
             </>
           )}
