@@ -78,9 +78,7 @@ export const EmployeesTable = () => {
         vaccinationDate: employee.vaccinationDate,
         doses: employee.doses
     }))
-
-    console.log(rows)
-
+    
     return (
         <Box className="employees-table">
             <DataGrid

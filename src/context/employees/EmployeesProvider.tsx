@@ -36,17 +36,18 @@ export const EmployeesProvider: FC<Props> = ({ children }) => {
     }
 
 
-    const validVaccinationState = ( employee: Employee, vaccinationState: vaccinatedState ) => {
+    const validVaccinationState = ( employee: Employee, vaccinationState: string | number ) => {
         if( vaccinationState === "all" ){
             return true;
         }
         return (employee.vaccinatedState == vaccinationState); 
     }
 
-    const validVaccineType = ( employee: Employee, vaccineType: vaccineType ) => {
+    const validVaccineType = ( employee: Employee, vaccineType: number ) => {
         if(vaccineType === -1 ){
             return true;
         }
+        console.log(employee.vaccineType, vaccineType)
         return (employee.vaccineType == vaccineType);
     }
 
@@ -59,7 +60,7 @@ export const EmployeesProvider: FC<Props> = ({ children }) => {
             && (toMs(employee.vaccinationDate) > toMs(startDate) && toMs(employee.vaccinationDate) < toMs(endDate));
     } 
 
-    const filterEmployee = async (vaccinationState: vaccinatedState, vaccineType: vaccineType, startDate: string, endDate: string) => {
+    const filterEmployee = async (vaccinationState: string | number, vaccineType: number, startDate: string, endDate: string) => {
 
         if(vaccinationState === "all" && vaccineType ===-1 && startDate === "" && endDate === "" ){
             dispatch({ type: "[Employee] - change filtered employees", payload: state.totalEmployees});

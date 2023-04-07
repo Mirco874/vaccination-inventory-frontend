@@ -1,15 +1,14 @@
 import { Grid } from '@mui/material'
 import { ChangeEvent, useContext, useEffect, useState } from "react"
 
-import { FilterOptions, vaccinatedState, vaccineType } from '../../../interfaces'
 import { FilterDateRange } from '../../../ui/components'
 import { Filter } from '../../../ui/components/Filter/Filter'
 import { EmployeesContext } from '../../../context'
 import { vaccineFilterOptions, vaccineStatusFilterOptions } from '../../../data'
 
 interface FilterData {
-    vaccinationState: vaccinatedState ,
-    vaccineType: vaccineType ,
+    vaccinationState: string | number ,
+    vaccineType: number ,
     startDate: string ,
     endDate: string 
 }

@@ -22,20 +22,20 @@ export const vaccineFilterOptions: FilterOptions[] = [
         name: "All"
     },
     {
-        value: 0,
+        value: "Sputnik",
         name: "Sputnik"
     },
     {
-        value: 1,
+        value: "AstraZeneca",
         name: "AstraZeneca"
     },
     {
-        value: 2,
+        value: "Pfizer",
         name: "Pfizer"
     },
     {
-        value: 3,
-        name: " Jhonson&Jhonson"
+        value: "Jhonson&Jhonson",
+        name: "Jhonson&Jhonson"
     }
 ]
 
